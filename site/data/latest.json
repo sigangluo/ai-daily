@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T21:00:29+08:00",
+  "generated_at": "2026-10-26T21:05:40+08:00",
   "tiers": [
     {
       "id": "T1",
@@ -178,7 +178,8 @@
       "tier": "T1",
       "region": "intl",
       "url": "https://deepmind.google/blog/rss.xml",
-      "status": "ok",
+      "status": "error",
+      "error": "not well-formed (invalid token): line 1, column 0",
       "items": [
         {
           "title": "Beyond tree cover: mapping the world’s forest types",
@@ -220,7 +221,8 @@
           "url": "https://deepmind.google/blog/gemini-4-argon-our-next-era-of-frontier-intelligence/",
           "date": "2026-10-01"
         }
-      ]
+      ],
+      "stale": true
     },
     {
       "id": "google-research",
@@ -1545,7 +1547,8 @@
       "tier": "T4",
       "region": "intl",
       "url": "https://importai.substack.com/feed",
-      "status": "ok",
+      "status": "error",
+      "error": "请求失败: HTTP Error 403: Forbidden",
       "items": [
         {
           "title": "Import AI 478: Math for alignment; ProgramBench; and Mirendil shows what RSI means",
@@ -1572,7 +1575,8 @@
           "url": "https://importai.substack.com/p/import-ai-474-platonic-mindspace",
           "date": "2026-09-28"
         }
-      ]
+      ],
+      "stale": true
     },
     {
       "id": "latent-space",
