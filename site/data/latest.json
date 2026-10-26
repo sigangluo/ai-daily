@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T21:05:40+08:00",
+  "generated_at": "2026-10-26T21:07:29+08:00",
   "tiers": [
     {
       "id": "T1",
@@ -178,8 +178,7 @@
       "tier": "T1",
       "region": "intl",
       "url": "https://deepmind.google/blog/rss.xml",
-      "status": "error",
-      "error": "not well-formed (invalid token): line 1, column 0",
+      "status": "ok",
       "items": [
         {
           "title": "Beyond tree cover: mapping the world’s forest types",
@@ -221,8 +220,7 @@
           "url": "https://deepmind.google/blog/gemini-4-argon-our-next-era-of-frontier-intelligence/",
           "date": "2026-10-01"
         }
-      ],
-      "stale": true
+      ]
     },
     {
       "id": "google-research",
@@ -1177,11 +1175,6 @@
           "date": "2026-10-26"
         },
         {
-          "title": "Grok Bot 两周实测：把 6 个 Bot 拉进群，我给自己搭了协同小队",
-          "url": "https://juejin.cn/post/7700798335888490511",
-          "date": "2026-10-26"
-        },
-        {
           "title": "Claude Duet 发布：主动型 Agent 三巨头集结，为什么都搬进了“云端虚拟电脑”",
           "url": "https://juejin.cn/post/7700814369021509674",
           "date": "2026-10-26"
@@ -1189,6 +1182,11 @@
         {
           "title": "AI 越强，失业越严重",
           "url": "https://juejin.cn/post/7700627964494168106",
+          "date": "2026-10-26"
+        },
+        {
+          "title": "AI 时代的 “房谋杜断”：如何培养能力、品味与判断力",
+          "url": "https://juejin.cn/post/7700798335889539087",
           "date": "2026-10-26"
         },
         {
