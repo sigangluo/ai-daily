@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-27T00:06:33+08:00",
+  "generated_at": "2026-10-27T00:07:07+08:00",
   "retention_days": 30,
   "fetch_days": 1,
   "tiers": [
@@ -1112,7 +1112,7 @@
           "date": "2026-10-22"
         }
       ],
-      "fresh_items": 10
+      "fresh_items": 0
     },
     {
       "id": "jiqizhixin",
@@ -1879,7 +1879,7 @@
           "date": "2026-10-24"
         }
       ],
-      "fresh_items": 4
+      "fresh_items": 3
     },
     {
       "id": "arstechnica-ai",
