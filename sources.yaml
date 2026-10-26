@@ -1,6 +1,7 @@
 # AI 日报信源配置
 # 最后更新: 2026-10-26
 # 所有 enabled: true 的信源均已实测可访问（2026-10-26 验证）
+# 更新方式: --bootstrap 回填 30 天；每日默认拉取 1 天并合并，保留滚动 30 天
 #
 # 层级说明:
 #   T1 官方一手   - 模型发布、官方博客，准确性最高，全收
@@ -13,7 +14,7 @@ sources:
 
   # ============ T1 官方一手 ============
 
-  # --- 国内: 优先官网动态；无官网 RSS 的厂商通过 GitHub Releases 订阅 ---
+  # --- 国内: 官网动态、技术博客与官方 Release Notes ---
   - id: deepseek-news
     name: DeepSeek
     tier: T1
@@ -23,47 +24,58 @@ sources:
     note: 官网 News 有 AWS WAF，经 Jina Reader 读取公开页面，条目链接指向官网
     enabled: true
 
-  - id: qwen-releases
-    name: 通义 Qwen
+  - id: qwen-research
+    name: 通义 Qwen Research
     tier: T1
     region: cn
-    type: atom
-    url: https://github.com/QwenLM/Qwen3/releases.atom
+    type: json_list
+    url: https://qwen.ai/api/v2/article/retrieval?type=qwen_ai&language=zh-CN
+    note: 官网实际使用的公开 JSON 接口
     enabled: true
 
-  - id: glm-releases
-    name: 智谱 GLM
+  - id: glm-release-notes
+    name: 智谱 GLM Release Notes
     tier: T1
     region: cn
-    type: atom
-    url: https://github.com/zai-org/GLM-4.5/releases.atom
+    type: web_list
+    url: https://docs.z.ai/release-notes/new-released
     enabled: true
 
-  - id: kimi-releases
-    name: 月之暗面 Kimi
+  - id: kimi-blog
+    name: 月之暗面 Kimi Blog
     tier: T1
     region: cn
-    type: atom
-    url: https://github.com/MoonshotAI/Kimi-K2/releases.atom
+    type: web_list
+    url: https://www.kimi.ai/blog/
     enabled: true
 
-  - id: minimax-releases
-    name: MiniMax
+  - id: minimax-blog
+    name: MiniMax Research
     tier: T1
     region: cn
-    type: atom
-    url: https://github.com/MiniMax-AI/MiniMax-M2/releases.atom
+    type: web_list
+    url: https://www.minimax.io/blog
     enabled: true
 
-  - id: stepfun-releases
+  - id: minimax-news
+    name: MiniMax News
+    tier: T1
+    region: cn
+    type: json_list
+    url: https://www.minimax.io/api/news?page=1&locale=en
+    note: 官网新闻列表实际使用的公开 JSON 接口
+    enabled: true
+
+  - id: stepfun-news
     name: 阶跃星辰
     tier: T1
     region: cn
-    type: atom
-    url: https://github.com/stepfun-ai/Step3/releases.atom
+    type: web_list
+    url: https://r.jina.ai/https://www.stepfun.com/news
+    note: 官网动态由客户端渲染，经 Jina Reader 读取公开页面
     enabled: true
 
-  # --- 国外: 官方博客 RSS ---
+  # --- 国外: 官方新闻、研究与技术博客 ---
   - id: openai-news
     name: OpenAI News
     tier: T1
@@ -78,7 +90,22 @@ sources:
     region: intl
     type: web_list
     url: https://www.anthropic.com/news
-    note: 无官方 RSS，抓新闻列表页
+    enabled: true
+
+  - id: anthropic-engineering
+    name: Anthropic Engineering
+    tier: T1
+    region: intl
+    type: web_list
+    url: https://www.anthropic.com/engineering
+    enabled: true
+
+  - id: anthropic-research
+    name: Anthropic Research
+    tier: T1
+    region: intl
+    type: web_list
+    url: https://www.anthropic.com/research
     enabled: true
 
   - id: deepmind-blog
@@ -324,8 +351,9 @@ sources:
     name: Import AI
     tier: T4
     region: intl
-    type: rss
-    url: https://importai.substack.com/feed
+    type: json_list
+    url: https://r.jina.ai/https://importai.substack.com/api/v1/posts?limit=10
+    note: Substack 在 Actions 环境返回 403，经 Jina Reader 读取公开 posts API
     enabled: true
 
   - id: latent-space
@@ -411,5 +439,4 @@ sources:
   # - 少数派 https://sspai.com/feed  (AI 浓度不高)
   # - Microsoft Research https://www.microsoft.com/en-us/research/feed/ (对 curl 403)
   # - 90 个 HN 顶级独立博客名单 (T4 扩展池, 见 vigorX777/ai-daily-digest)
-  # - Anthropic Engineering 博客 https://www.anthropic.com/engineering (可并入 anthropic-news 抓取)
   # - 未收录公众号(歸藏/小互/Founder Park等)可向 Wechat2RSS 申请收录

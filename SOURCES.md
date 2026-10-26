@@ -1,6 +1,6 @@
 # AI 日报信源清单
 
-> 最后更新：2026-10-26 · 一期接入 **39 个信源**；T5 论文暂缓接入
+> 最后更新：2026-10-26 · 一期接入 **42 个信源**；T5 论文暂缓接入
 > 机器可读配置见 [sources.yaml](sources.yaml)
 
 ## 分层设计
@@ -15,27 +15,30 @@
 
 ---
 
-## T1 · 官方一手（14）
+## T1 · 官方一手（17）
 
-### 国内（6）—— 优先官网动态，其他厂商经 GitHub Releases 订阅模型发布
+### 国内（7）—— 官网动态、技术博客与官方 Release Notes
 
 | 信源 | 订阅地址 | 说明 |
 |---|---|---|
 | DeepSeek | [deepseek.com/news](https://www.deepseek.com/news/) | 官网 News 有 AWS WAF，经 Jina Reader 读取，链接指向官网 |
-| 通义 Qwen | [releases.atom](https://github.com/QwenLM/Qwen3/releases.atom) | 阿里 Qwen3 系列 |
-| 智谱 GLM | [releases.atom](https://github.com/zai-org/GLM-4.5/releases.atom) | GLM 系列 |
-| 月之暗面 Kimi | [releases.atom](https://github.com/MoonshotAI/Kimi-K2/releases.atom) | Kimi K2 系列 |
-| MiniMax | [releases.atom](https://github.com/MiniMax-AI/MiniMax-M2/releases.atom) | M2 系列 |
-| 阶跃星辰 | [releases.atom](https://github.com/stepfun-ai/Step3/releases.atom) | Step 系列 |
+| 通义 Qwen Research | [qwen.ai/research](https://qwen.ai/research) | 官网研究动态，使用页面实际调用的公开 JSON 接口 |
+| 智谱 GLM Release Notes | [docs.z.ai](https://docs.z.ai/release-notes/new-released) | 官方模型 Release Notes |
+| 月之暗面 Kimi Blog | [kimi.ai/blog](https://www.kimi.ai/blog/) | 官方研究与技术博客 |
+| MiniMax Research | [minimax.io/blog](https://www.minimax.io/blog) | 官方研究与技术博客 |
+| MiniMax News | [minimax.io/news](https://www.minimax.io/news) | 公司动态，使用页面实际调用的公开 JSON 接口 |
+| 阶跃星辰 | [stepfun.com/news](https://www.stepfun.com/news) | 模型发布、技术进展与公司动态，经 Jina Reader 读取 |
 
-> 字节豆包、百度文心无开源发布渠道，其动态由 T2 国内媒体覆盖。
+> 字节豆包、百度文心无稳定的公开动态订阅入口，其动态由 T2 国内媒体覆盖。
 
-### 国外（8）
+### 国外（10）
 
 | 信源 | 订阅地址 | 接入方式 |
 |---|---|---|
 | OpenAI News | [RSS](https://openai.com/news/rss.xml) | RSS |
-| Anthropic News | [anthropic.com/news](https://www.anthropic.com/news) | 无 RSS，抓新闻列表页 |
+| Anthropic News | [anthropic.com/news](https://www.anthropic.com/news) | 官方新闻列表 |
+| Anthropic Engineering | [anthropic.com/engineering](https://www.anthropic.com/engineering) | 官方工程博客 |
+| Anthropic Research | [anthropic.com/research](https://www.anthropic.com/research) | 官方研究博客 |
 | Google DeepMind | [RSS](https://deepmind.google/blog/rss.xml) | RSS |
 | Google Research | [RSS](https://research.google/blog/rss/) | RSS |
 | Mistral AI | [RSS](https://mistral.ai/news/rss) | RSS |
@@ -100,7 +103,7 @@
 |---|---|---|
 | Simon Willison | [Atom](https://simonwillison.net/atom/everything/) | LLM 工程实践第一博客 |
 | Lilian Weng | [RSS](https://lilianweng.github.io/index.xml) | 前 OpenAI，长篇技术综述 |
-| Import AI | [RSS](https://importai.substack.com/feed) | Jack Clark 的 AI 周刊 |
+| Import AI | [Substack](https://importai.substack.com/) | Jack Clark 的 AI 周刊；公开 posts API 经 Jina Reader 读取 |
 | Latent Space | [RSS](https://www.latent.space/feed) | AI 工程社区 |
 | Berkeley AI Research | [RSS](https://bair.berkeley.edu/blog/feed.xml) | 学术界视角 |
 
@@ -122,13 +125,14 @@
 
 - [arXiv cs.LG](https://export.arxiv.org/rss/cs.LG) / [cs.CV](https://export.arxiv.org/rss/cs.CV) —— 量太大，一期先不接
 - [少数派](https://sspai.com/feed) —— 效率工具，AI 浓度不高
-- [Anthropic Engineering](https://www.anthropic.com/engineering) —— 可并入 Anthropic 抓取
 - [HN 人气独立博客 90 个](https://github.com/vigorX777/ai-daily-digest) —— T4 扩展池
 - 未收录的公众号（歸藏、小互、Founder Park 等）—— 可向 [Wechat2RSS](https://github.com/ttttmr/Wechat2RSS) 申请收录
 
 ## 已知风险
 
 1. **公众号依赖 Wechat2RSS 公共服务**：延迟 24h 内，第三方服务存在失效可能，核心信息不依赖它
-2. **网页抓取和 API 源**（GitHub Trending、Anthropic、掘金）：页面结构或接口变更会导致失效，需要抓取失败告警
-3. **同一事件多源报道**：为保持信源边界，一期只在信源内部按链接去重，不做跨源合并
-4. **arXiv 原始流量大**：后续接入前必须先确定过滤方式，不能直接展示未经筛选的原始流
+2. **网页抓取和 API 源**（GitHub Trending、Anthropic、掘金及国内厂商官网）：页面结构或接口变更会导致失效，解析为 0 条时会按异常处理
+3. **Jina Reader**：DeepSeek、StepFun 和 Import AI 用它读取公开页面/API，并禁用缓存；第三方服务波动时保留已有内容
+4. **本月无更新**：低频信源可能自然为空，页面只显示紧凑提示，不使用旧文章填充
+5. **同一事件多源报道**：为保持信源边界，一期只在信源内部按链接去重，不做跨源合并
+6. **arXiv 原始流量大**：后续接入前必须先确定过滤方式，不能直接展示未经筛选的原始流

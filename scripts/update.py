@@ -22,8 +22,8 @@ TIERS = {
     "T4": ("深度写作", "低频、高质量的长期阅读"),
 }
 REGIONS = (("cn", "国内"), ("intl", "国外"))
-WINDOWS = {"T1": 60, "T2": 7, "T3": 14, "T4": 90}
-LIMITS = {"T1": 8, "T2": 8, "T3": 10, "T4": 5}
+RETENTION_DAYS = 30
+DAILY_FETCH_DAYS = 1
 
 
 def log(message):
@@ -62,8 +62,8 @@ def previous_sources():
     return {source["id"]: source for source in data.get("sources", [])}
 
 
-def normalize_items(items, source, now):
-    earliest = (now - timedelta(days=WINDOWS[source["tier"]])).date()
+def normalize_items(items, now, days):
+    earliest = now.date() - timedelta(days=days)
     unique = {}
     for item in items:
         url = item.get("url", "")
@@ -83,25 +83,27 @@ def normalize_items(items, source, now):
         if item.get("meta"):
             normalized["meta"] = item["meta"][:4]
         unique[url] = normalized
-    return sorted(unique.values(), key=lambda item: (item["date"], item["title"]), reverse=True)[:LIMITS[source["tier"]]]
+    return sorted(unique.values(), key=lambda item: (item["date"], item["title"]), reverse=True)
 
 
-def build_source(source, now, previous):
+def build_source(source, now, previous, fetch_days):
     result = {key: source[key] for key in ("id", "name", "tier", "region")}
+    old = previous.get(source["id"], {})
+    old_items = normalize_items(old.get("items", []), now, RETENTION_DAYS)
     try:
         fetched = fetch_source(source)
-        items = normalize_items(fetched, source, now)
-        result.update({"url": source["url"], "status": "ok", "items": items})
-        log(f"OK  {source['id']}: 抓取 {len(fetched)} 条，近期保留 {len(items)} 条")
+        fresh_items = normalize_items(fetched, now, fetch_days)
+        items = fresh_items if fetch_days == RETENTION_DAYS else normalize_items(fresh_items + old_items, now, RETENTION_DAYS)
+        result.update({"url": source["url"], "status": "ok", "items": items, "fresh_items": len(fresh_items)})
+        log(f"OK  {source['id']}: 抓取 {len(fetched)} 条，本次新增/更新 {len(fresh_items)} 条，本月保留 {len(items)} 条")
     except Exception as error:
-        old = previous.get(source["id"], {})
         result.update({
             "url": source["url"],
             "status": "error",
             "error": str(error)[:300],
-            "items": old.get("items", []),
+            "items": old_items,
         })
-        if old.get("items"):
+        if old_items:
             result["stale"] = True
         log(f"ERR {source['id']}: {error}")
     return result
@@ -111,7 +113,9 @@ def main():
     parser = argparse.ArgumentParser(description="抓取启用的信源并生成 site/data/latest.json")
     parser.add_argument("--only", help="只更新指定信源 ID，多个用逗号分隔")
     parser.add_argument("--workers", type=int, default=6)
+    parser.add_argument("--bootstrap", action="store_true", help="回填最近 30 天；默认每日增量拉取最近 1 天")
     args = parser.parse_args()
+    fetch_days = RETENTION_DAYS if args.bootstrap else DAILY_FETCH_DAYS
     sources = load_sources()
     previous = previous_sources()
     if args.only:
@@ -125,7 +129,7 @@ def main():
         merged = {}
     now = datetime.now(SHANGHAI)
     with ThreadPoolExecutor(max_workers=max(1, min(args.workers, 12))) as pool:
-        futures = {pool.submit(build_source, source, now, previous): source for source in sources}
+        futures = {pool.submit(build_source, source, now, previous, fetch_days): source for source in sources}
         for future in as_completed(futures):
             result = future.result()
             merged[result["id"]] = result
@@ -136,6 +140,8 @@ def main():
         raise SystemExit(f"以下信源没有数据，请先完整更新: {', '.join(missing)}")
     output = {
         "generated_at": now.isoformat(timespec="seconds"),
+        "retention_days": RETENTION_DAYS,
+        "fetch_days": fetch_days,
         "tiers": [{"id": key, "name": value[0], "description": value[1]} for key, value in TIERS.items()],
         "regions": [{"id": key, "name": value} for key, value in REGIONS],
         "sources": ordered,

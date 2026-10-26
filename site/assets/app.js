@@ -31,13 +31,11 @@
     header.appendChild(node('span', 'source-count', source.items.length + ' 条'));
     card.appendChild(header);
 
-    if (!source.items.length) {
-      card.appendChild(node('p', 'empty', source.status === 'error' ? '抓取失败，暂无保留内容' : '近期暂无更新'));
-      return card;
-    }
     const list = node('ol', 'items');
-    source.items.forEach(function (item) {
+    list.id = 'items-' + source.id;
+    source.items.forEach(function (item, index) {
       const row = node('li', 'item');
+      if (index >= 6) row.hidden = true;
       const line = node('div', 'item-line');
       const link = node('a', 'item-title', item.title);
       link.href = safeUrl(item.url);
@@ -57,6 +55,21 @@
       list.appendChild(row);
     });
     card.appendChild(list);
+    if (source.items.length > 6) {
+      const button = node('button', 'source-expand', '展开全部 ' + source.items.length + ' 条');
+      button.type = 'button';
+      button.setAttribute('aria-expanded', 'false');
+      button.setAttribute('aria-controls', list.id);
+      button.addEventListener('click', function () {
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        Array.from(list.children).forEach(function (row, index) {
+          if (index >= 6) row.hidden = expanded;
+        });
+        button.setAttribute('aria-expanded', String(!expanded));
+        button.textContent = expanded ? '展开全部 ' + source.items.length + ' 条' : '收起';
+      });
+      card.appendChild(button);
+    }
     return card;
   }
 
@@ -64,7 +77,7 @@
     const totalItems = data.sources.reduce(function (sum, source) { return sum + source.items.length; }, 0);
     const updated = new Date(data.generated_at);
     document.getElementById('update-meta').textContent =
-      '更新于 ' + new Intl.DateTimeFormat('zh-CN', {
+      '近 30 天 · 更新于 ' + new Intl.DateTimeFormat('zh-CN', {
         year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false
       }).format(updated) + ' · ' + data.sources.length + ' 个信源 · ' + totalItems + ' 条内容';
 
@@ -99,8 +112,16 @@
         const regionHeading = node('h3', 'region-heading', region.name);
         regionHeading.appendChild(node('span', 'region-count', sources.length + ' 个信源'));
         const grid = node('div', 'source-grid');
-        sources.forEach(function (source) { grid.appendChild(sourceCard(source)); });
+        const activeSources = sources.filter(function (source) { return source.items.length > 0; });
+        const emptySources = sources.filter(function (source) { return source.items.length === 0; });
+        activeSources.forEach(function (source) { grid.appendChild(sourceCard(source)); });
         regionSection.append(regionHeading, grid);
+        if (emptySources.length) {
+          const empty = node('p', 'empty-sources');
+          empty.appendChild(node('span', 'empty-sources-label', '本月暂无更新'));
+          empty.appendChild(node('span', '', emptySources.map(function (source) { return source.name; }).join(' · ')));
+          regionSection.appendChild(empty);
+        }
         section.appendChild(regionSection);
       });
       content.appendChild(section);

@@ -126,10 +126,10 @@ class HeadingArticleParser(HTMLParser):
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
         if tag == "article":
-            self.article = {"links": [], "date": ""}
+            self.article = {"links": [], "date": "", "title": []}
         elif self.article is not None and tag == "a":
             self.anchor = {"url": clean_url(attrs.get("href", ""), self.base_url), "heading": [], "plain": []}
-        elif self.anchor is not None and tag in ("h1", "h2", "h3"):
+        elif self.article is not None and tag in ("h1", "h2", "h3"):
             self.heading_depth += 1
         elif self.article is not None and tag == "time":
             self.in_time = True
@@ -138,11 +138,13 @@ class HeadingArticleParser(HTMLParser):
 
     def handle_endtag(self, tag):
         if tag == "article" and self.article is not None:
-            for link in self.article["links"]:
-                title = clean_text(" ".join(link["heading"]))
-                if title and link["url"]:
-                    self.articles.append({"title": title, "url": link["url"], "date": self.article["date"]})
-                    break
+            article_title = clean_text(" ".join(self.article["title"]))
+            candidates = [link for link in self.article["links"] if clean_text(" ".join(link["heading"]))]
+            if not candidates and article_title:
+                candidates = [link for link in self.article["links"]
+                              if clean_text(" ".join(link["plain"])) == article_title]
+            if candidates and candidates[0]["url"]:
+                self.articles.append({"title": article_title, "url": candidates[0]["url"], "date": self.article["date"]})
             self.article = None
             self.anchor = None
         elif tag == "a" and self.anchor is not None:
@@ -156,6 +158,8 @@ class HeadingArticleParser(HTMLParser):
             self.in_time = False
 
     def handle_data(self, data):
+        if self.article is not None and self.heading_depth:
+            self.article["title"].append(data)
         if self.anchor is not None:
             self.anchor["plain"].append(data)
             if self.heading_depth:
@@ -204,6 +208,217 @@ def parse_deepseek(raw):
     parser = DeepSeekParser()
     parser.feed(raw.decode("utf-8", "replace"))
     return parser.items
+
+
+def date_from_text(value):
+    text = clean_text(value)
+    chinese = re.search(r"(\d{4})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日", text)
+    if chinese:
+        return f"{int(chinese.group(1)):04d}-{int(chinese.group(2)):02d}-{int(chinese.group(3)):02d}"
+    iso = re.search(r"\d{4}-\d{2}-\d{2}", text)
+    if iso:
+        return iso.group(0)
+    english = re.search(r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{1,2},\s+\d{4}", text)
+    return date_text(english.group(0)) if english else ""
+
+
+class AnchorCardParser(HTMLParser):
+    def __init__(self, base_url, prefixes):
+        super().__init__(convert_charrefs=True)
+        self.base_url = base_url
+        self.prefixes = prefixes
+        self.items = []
+        self.current = None
+        self.heading_depth = 0
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if tag == "a" and self.current is None:
+            url = clean_url(attrs.get("href", ""), self.base_url)
+            if url and any(urllib.parse.urlsplit(url).path.startswith(prefix) for prefix in self.prefixes):
+                self.current = {"url": url, "title": [], "text": []}
+        elif self.current is not None and tag in ("h2", "h3"):
+            self.heading_depth += 1
+
+    def handle_endtag(self, tag):
+        if tag == "a" and self.current is not None:
+            title = clean_text(" ".join(self.current["title"]))
+            date = date_from_text(" ".join(self.current["text"]))
+            if title and date:
+                self.items.append({"title": title, "url": self.current["url"], "date": date})
+            self.current = None
+            self.heading_depth = 0
+        elif tag in ("h2", "h3") and self.heading_depth:
+            self.heading_depth -= 1
+
+    def handle_data(self, data):
+        if self.current is not None:
+            self.current["text"].append(data)
+            if self.heading_depth:
+                self.current["title"].append(data)
+
+
+class KimiParser(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.items = []
+        self.current = None
+        self.depth = 0
+        self.in_date = False
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        classes = attrs.get("class", "").split()
+        if tag == "div" and "menu-card" in classes and self.current is None:
+            self.current = {"url": "", "title": "", "date": []}
+            self.depth = 1
+        elif self.current is not None and tag == "div":
+            self.depth += 1
+        if self.current is None:
+            return
+        if tag == "a" and attrs.get("href", "").startswith("/blog/"):
+            self.current["url"] = clean_url(attrs["href"], "https://www.kimi.ai")
+            self.current["title"] = clean_text(attrs.get("aria-label", "")) or self.current["title"]
+        elif tag == "h4" and "card-title" in classes:
+            self.current["heading"] = []
+        elif tag == "p" and "card-date" in classes:
+            self.in_date = True
+
+    def handle_endtag(self, tag):
+        if self.current is None:
+            return
+        if tag == "h4" and "heading" in self.current:
+            self.current["title"] = self.current["title"] or clean_text(" ".join(self.current.pop("heading")))
+        elif tag == "p":
+            self.in_date = False
+        elif tag == "div":
+            self.depth -= 1
+            if self.depth == 0:
+                date = date_from_text(" ".join(self.current["date"]))
+                if self.current["title"] and self.current["url"] and date:
+                    self.items.append({"title": self.current["title"], "url": self.current["url"], "date": date})
+                self.current = None
+
+    def handle_data(self, data):
+        if self.current is None:
+            return
+        if self.in_date:
+            self.current["date"].append(data)
+        if "heading" in self.current:
+            self.current["heading"].append(data)
+
+
+class ZaiParser(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.items = []
+        self.current = None
+        self.depth = 0
+        self.in_title = False
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if tag == "div" and "update-container" in attrs.get("class", "").split() and self.current is None:
+            date = attrs.get("id", "")
+            self.current = {"date": date, "title": [],
+                            "url": f"https://docs.z.ai/release-notes/new-released#{date}"}
+            self.depth = 1
+        elif self.current is not None and tag == "div":
+            self.depth += 1
+            if attrs.get("data-component-part") == "update-description":
+                self.in_title = True
+
+    def handle_endtag(self, tag):
+        if self.current is None or tag != "div":
+            return
+        if self.in_title:
+            self.in_title = False
+        self.depth -= 1
+        if self.depth == 0:
+            title = clean_text(" ".join(self.current["title"]))
+            if title and re.fullmatch(r"\d{4}-\d{2}-\d{2}", self.current["date"]):
+                self.items.append({"title": title, "url": self.current["url"], "date": self.current["date"]})
+            self.current = None
+
+    def handle_data(self, data):
+        if self.current is not None and self.in_title:
+            self.current["title"].append(data)
+
+
+def parse_cards(raw, base_url, prefixes):
+    parser = AnchorCardParser(base_url, prefixes)
+    parser.feed(raw.decode("utf-8", "replace"))
+    return parser.items
+
+
+def parse_kimi(raw):
+    parser = KimiParser()
+    parser.feed(raw.decode("utf-8", "replace"))
+    return parser.items
+
+
+def parse_zai(raw):
+    parser = ZaiParser()
+    parser.feed(raw.decode("utf-8", "replace"))
+    return parser.items
+
+
+def parse_stepfun(raw):
+    text = raw.decode("utf-8", "replace")
+    items = parse_cards(raw, "https://www.stepfun.com", ("/news/",))
+    if items:
+        return items
+    pattern = re.compile(r"\[(.*?)\]\((https://www\.stepfun\.com/news/[^)]+)\)", re.S)
+    for match in pattern.finditer(text):
+        body, url = match.groups()
+        images = re.findall(r"!\[Image \d+:\s*(.*?)\]\([^)]+\)", body, re.S)
+        title = clean_text(images[-1]) if images else ""
+        date = date_from_text(body)
+        if title and date:
+            items.append({"title": title, "url": url, "date": date})
+    return items
+
+
+def parse_minimax_news(raw):
+    payload = json.loads(raw)
+    items = []
+    for entry in payload.get("data") or []:
+        title = clean_text(entry.get("title"))
+        slug = entry.get("slug", "")
+        try:
+            date = timestamp_text(entry.get("publishDate") / 1000)
+        except (TypeError, KeyError):
+            date = ""
+        if title and slug and date:
+            items.append({"title": title, "url": f"https://www.minimax.io/news/{slug}", "date": date})
+    return items
+
+
+def parse_qwen(raw):
+    payload = json.loads(raw)
+    items = []
+    for entry in payload.get("data", {}).get("articles", []):
+        extra = entry.get("extra") or {}
+        title = clean_text(entry.get("title"))
+        path = entry.get("path", "")
+        date = date_text(extra.get("date", ""))
+        if title and path and date:
+            items.append({"title": title, "url": f"https://qwen.ai/research/{path}", "date": date})
+    return items
+
+
+def parse_substack(raw):
+    text = raw.decode("utf-8", "replace")
+    marker = "Markdown Content:\n"
+    payload = text.split(marker, 1)[1].lstrip() if marker in text else text
+    items = []
+    for entry in json.loads(payload):
+        title = clean_text(entry.get("title"))
+        url = clean_url(entry.get("canonical_url", ""), "https://importai.substack.com")
+        date = date_text(entry.get("post_date", ""))
+        if title and url and date:
+            items.append({"title": title, "url": url, "date": date})
+    return items
 
 
 class TrendingParser(HTMLParser):
@@ -297,17 +512,40 @@ def parse_juejin(raw):
 
 
 def fetch_source(source):
-    if source["id"] == "juejin-ai":
+    source_id = source["id"]
+    if source_id == "juejin-ai":
         raw = request(source["url"], {"id_type": 2, "sort_type": 300, "cate_id": "6809637773935378440", "limit": 30, "cursor": "0"})
-        return parse_juejin(raw)
-    if source["id"] == "deepseek-news":
-        raw = request(source["url"], extra_headers={"X-Return-Format": "html"})
-        return parse_deepseek(raw)
-    raw = request(source["url"])
-    if source["id"] == "anthropic-news":
-        return parse_anthropic(raw)
-    if source["id"] == "github-trending":
-        return parse_trending(raw)
-    if source["type"] in ("rss", "atom", "wechat"):
-        return parse_feed(raw, source)
-    raise RuntimeError(f"暂不支持的信源类型: {source['type']}")
+        items = parse_juejin(raw)
+    else:
+        formats = {"deepseek-news": "html", "stepfun-news": "markdown"}
+        extra_headers = {"X-No-Cache": "true"} if source["url"].startswith("https://r.jina.ai/") else {}
+        if source_id in formats:
+            extra_headers["X-Return-Format"] = formats[source_id]
+        raw = request(source["url"], extra_headers=extra_headers)
+        if source_id == "deepseek-news":
+            items = parse_deepseek(raw)
+        elif source_id == "qwen-research":
+            items = parse_qwen(raw)
+        elif source_id == "glm-release-notes":
+            items = parse_zai(raw)
+        elif source_id == "kimi-blog":
+            items = parse_kimi(raw)
+        elif source_id == "minimax-blog":
+            items = parse_cards(raw, "https://www.minimax.io", ("/blog/",))
+        elif source_id == "minimax-news":
+            items = parse_minimax_news(raw)
+        elif source_id == "stepfun-news":
+            items = parse_stepfun(raw)
+        elif source_id.startswith("anthropic-"):
+            items = parse_anthropic(raw)
+        elif source_id == "github-trending":
+            items = parse_trending(raw)
+        elif source_id == "import-ai":
+            items = parse_substack(raw)
+        elif source["type"] in ("rss", "atom", "wechat"):
+            items = parse_feed(raw, source)
+        else:
+            raise RuntimeError(f"暂不支持的信源类型: {source['type']}")
+    if source["type"] in ("web_list", "json_list") and not items:
+        raise RuntimeError("页面或接口解析结果为 0 条，可能是结构已变化")
+    return items
