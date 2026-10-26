@@ -62,9 +62,10 @@
       line.append(link, date);
       row.appendChild(line);
       if (item.description) row.appendChild(node('p', 'item-description', item.description));
-      if (item.meta && item.meta.length) {
+      if ((item.categories && item.categories.length) || (item.meta && item.meta.length)) {
         const meta = node('div', 'item-meta');
-        item.meta.forEach(function (value) { meta.appendChild(node('span', '', value)); });
+        (item.categories || []).forEach(function (value) { meta.appendChild(node('span', 'item-category', value)); });
+        (item.meta || []).forEach(function (value) { meta.appendChild(node('span', '', value)); });
         row.appendChild(meta);
       }
       list.appendChild(row);

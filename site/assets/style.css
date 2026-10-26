@@ -98,6 +98,7 @@ h1 { margin: 0; max-width: 720px; font-size: clamp(32px, 5vw, 48px); line-height
 .item-date { flex: none; padding-top: 3px; color: var(--faint); font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: 10px; font-variant-numeric: tabular-nums; }
 .item-description { display: -webkit-box; margin: 5px 58px 0 0; overflow: hidden; color: var(--muted); font-size: 11px; line-height: 1.55; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .item-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; color: var(--faint); font-size: 10px; }
+.item-category { padding: 1px 5px; border-radius: 4px; background: var(--accent-soft); color: var(--accent); }
 .empty { margin: 0; padding: 22px 0; color: var(--faint); font-size: 12px; text-align: center; }
 .source-expand { width: 100%; padding: 10px 17px; border: 0; border-top: 1px solid var(--line); background: transparent; color: var(--muted); font: inherit; font-size: 11px; cursor: pointer; text-align: center; }
 .source-expand:hover { background: var(--accent-soft); color: var(--accent); }

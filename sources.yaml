@@ -18,7 +18,7 @@ homepages:
   minimax-blog: https://www.minimax.io/blog
   minimax-news: https://www.minimax.io/news
   stepfun-news: https://www.stepfun.com/news
-  openai-news: https://openai.com/news/
+  openai-news: https://openai.com/zh-Hans-CN/news/
   anthropic-news: https://www.anthropic.com/news
   anthropic-engineering: https://www.anthropic.com/engineering
   anthropic-research: https://www.anthropic.com/research
@@ -126,6 +126,7 @@ sources:
     region: intl
     type: rss
     url: https://openai.com/news/rss.xml
+    note: RSS 补齐 30 天并读取官方分类；中文官网提供本地化标题和链接
     enabled: true
 
   - id: anthropic-news

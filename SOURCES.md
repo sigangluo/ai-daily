@@ -35,7 +35,7 @@
 
 | 信源 | 订阅地址 | 接入方式 |
 |---|---|---|
-| OpenAI News | [RSS](https://openai.com/news/rss.xml) | RSS |
+| OpenAI News | [中文 News](https://openai.com/zh-Hans-CN/news/) / [RSS](https://openai.com/news/rss.xml) | 中文官网提供本地化标题和链接，RSS 补齐 30 天并读取官方分类 |
 | Anthropic News | [anthropic.com/news](https://www.anthropic.com/news) | 官方新闻列表 |
 | Anthropic Engineering | [anthropic.com/engineering](https://www.anthropic.com/engineering) | 官方工程博客 |
 | Anthropic Research | [anthropic.com/research](https://www.anthropic.com/research) | 官方研究博客 |

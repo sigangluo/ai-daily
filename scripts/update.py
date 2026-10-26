@@ -85,6 +85,8 @@ def normalize_items(items, now, days):
             normalized["description"] = " ".join(item["description"].split())[:300]
         if item.get("meta"):
             normalized["meta"] = item["meta"][:4]
+        if item.get("categories"):
+            normalized["categories"] = item["categories"][:4]
         unique[url] = normalized
     return sorted(unique.values(), key=lambda item: (item["date"], item["title"]), reverse=True)
 
@@ -96,7 +98,7 @@ def build_source(source, now, previous, fetch_days):
     try:
         fetched = fetch_source(source)
         fresh_items = normalize_items(fetched, now, fetch_days)
-        items = fresh_items if fetch_days == RETENTION_DAYS else normalize_items(fresh_items + old_items, now, RETENTION_DAYS)
+        items = fresh_items if fetch_days == RETENTION_DAYS else normalize_items(old_items + fresh_items, now, RETENTION_DAYS)
         result.update({"url": source["url"], "status": "ok", "items": items, "fresh_items": len(fresh_items)})
         log(f"OK  {source['id']}: 抓取 {len(fetched)} 条，本次新增/更新 {len(fresh_items)} 条，本月保留 {len(items)} 条")
     except Exception as error:

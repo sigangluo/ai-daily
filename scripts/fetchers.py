@@ -109,7 +109,11 @@ def parse_feed(raw, source):
             url = next((value for value in urls if value.startswith(("http://", "https://"))), "")
         url = clean_url(url, source["url"])
         if title and url:
-            items.append({"title": title, "url": url, "date": date_text(dates[0] if dates else "")})
+            item = {"title": title, "url": url, "date": date_text(dates[0] if dates else "")}
+            categories = child_values(entry, ("category",))
+            if categories:
+                item["categories"] = categories
+            items.append(item)
     return items
 
 
@@ -421,6 +425,48 @@ def parse_jina_feed(raw):
     return items
 
 
+def parse_openai_zh(raw):
+    text = raw.decode("utf-8", "replace")
+    categories = sorted(("Safety & Alignment", "安全与对齐", "公司公告", "产品发布", "智能时代", "全球事务", "AI 采用", "应用 AI", "研究", "工程", "产品", "安全", "公司"), key=len, reverse=True)
+    items = []
+    for match in re.finditer(r"(?<!!)\[(.*?)\]\((https://openai\.com/[^)]+)\)", text, re.S):
+        body, url = match.groups()
+        body = clean_text(re.sub(r"!\[.*?\]\([^)]+\)", "", body, flags=re.S)).lstrip("[").strip()
+        date_match = re.search(r"(\d{4})年(\d{1,2})月(\d{1,2})日\s*$", body)
+        if not date_match:
+            continue
+        title = body[:date_match.start()].strip()
+        category = next((value for value in categories if title.endswith(" " + value)), "")
+        if category:
+            title = title[:-len(category)].strip()
+        date = f"{int(date_match.group(1)):04d}-{int(date_match.group(2)):02d}-{int(date_match.group(3)):02d}"
+        if title:
+            item = {"title": title, "url": url, "date": date}
+            if category:
+                item["categories"] = [category]
+            items.append(item)
+    return items
+
+
+def openai_key(url):
+    match = re.search(r"/index/([^/]+)", urllib.parse.urlsplit(url).path)
+    return match.group(1) if match else url
+
+
+def merge_openai(english_items, chinese_items):
+    chinese = {openai_key(item["url"]): item for item in chinese_items}
+    items = []
+    for item in english_items:
+        localized = chinese.get(openai_key(item["url"]))
+        if localized:
+            categories = localized.get("categories") or item.get("categories")
+            item = {**item, **localized}
+            if categories:
+                item["categories"] = categories
+        items.append(item)
+    return items
+
+
 def parse_substack(raw):
     text = raw.decode("utf-8", "replace")
     marker = "Markdown Content:\n"
@@ -530,6 +576,13 @@ def fetch_source(source):
     if source_id == "juejin-ai":
         raw = request(source["url"], {"id_type": 2, "sort_type": 300, "cate_id": "6809637773935378440", "limit": 30, "cursor": "0"})
         items = parse_juejin(raw)
+    elif source_id == "openai-news":
+        items = parse_feed(request(source["url"]), source)
+        try:
+            raw = request("https://r.jina.ai/https://openai.com/zh-Hans-CN/news/", extra_headers={"X-No-Cache": "true"})
+            items = merge_openai(items, parse_openai_zh(raw))
+        except Exception:
+            pass
     elif source_id == "deepmind-blog":
         try:
             items = parse_feed(request(source["url"]), source)
