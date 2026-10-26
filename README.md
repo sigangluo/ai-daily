@@ -71,7 +71,7 @@ SOURCES.md                  信源说明（人工阅读）
 
 - 公众号通过 [Wechat2RSS](https://github.com/ttttmr/Wechat2RSS) 公共服务接入，可能有延迟或服务波动
 - GitHub Trending、Anthropic、掘金及国内厂商官网依赖网页结构或公开接口，结构变化时需要更新解析器
-- DeepSeek 官网 News 有 AWS WAF；DeepSeek、StepFun、Import AI 通过 Jina Reader 读取公开内容并禁用缓存，条目仍跳转官方原文
+- DeepSeek 官网 News 有 AWS WAF；DeepSeek、StepFun、Import AI 通过 Jina Reader 读取公开内容并禁用缓存，DeepMind RSS 失败时也用它兜底，条目仍跳转官方原文
 - 低频信源可能近 30 天没有新内容，这是正常状态，不使用旧文章填充
 - 本站只保存标题、链接和少量元数据，文章版权属于原信源
 

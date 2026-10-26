@@ -407,6 +407,20 @@ def parse_qwen(raw):
     return items
 
 
+def parse_jina_feed(raw):
+    text = raw.decode("utf-8", "replace")
+    items = []
+    pattern = re.compile(r"### \[(.*?)\]\((https?://[^)]+)\)(.*?)(?=^### \[|\Z)", re.M | re.S)
+    for match in pattern.finditer(text):
+        title = clean_text(match.group(1))
+        url = clean_url(match.group(2), "https://deepmind.google")
+        date_match = re.search(r"(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun),[^\n]+", match.group(3))
+        date = date_text(date_match.group(0)) if date_match else ""
+        if title and url and date:
+            items.append({"title": title, "url": url, "date": date})
+    return items
+
+
 def parse_substack(raw):
     text = raw.decode("utf-8", "replace")
     marker = "Markdown Content:\n"
@@ -516,6 +530,12 @@ def fetch_source(source):
     if source_id == "juejin-ai":
         raw = request(source["url"], {"id_type": 2, "sort_type": 300, "cate_id": "6809637773935378440", "limit": 30, "cursor": "0"})
         items = parse_juejin(raw)
+    elif source_id == "deepmind-blog":
+        try:
+            items = parse_feed(request(source["url"]), source)
+        except Exception:
+            raw = request("https://r.jina.ai/" + source["url"], extra_headers={"X-No-Cache": "true"})
+            items = parse_jina_feed(raw)
     else:
         formats = {"deepseek-news": "html", "stepfun-news": "markdown"}
         extra_headers = {"X-No-Cache": "true"} if source["url"].startswith("https://r.jina.ai/") else {}

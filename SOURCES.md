@@ -39,7 +39,7 @@
 | Anthropic News | [anthropic.com/news](https://www.anthropic.com/news) | 官方新闻列表 |
 | Anthropic Engineering | [anthropic.com/engineering](https://www.anthropic.com/engineering) | 官方工程博客 |
 | Anthropic Research | [anthropic.com/research](https://www.anthropic.com/research) | 官方研究博客 |
-| Google DeepMind | [RSS](https://deepmind.google/blog/rss.xml) | RSS |
+| Google DeepMind | [RSS](https://deepmind.google/blog/rss.xml) | 官方 RSS 优先，失败时经 Jina Reader 读取同一 RSS |
 | Google Research | [RSS](https://research.google/blog/rss/) | RSS |
 | Mistral AI | [RSS](https://mistral.ai/news/rss) | RSS |
 | Hugging Face Blog | [RSS](https://huggingface.co/blog/feed.xml) | RSS |
@@ -132,7 +132,7 @@
 
 1. **公众号依赖 Wechat2RSS 公共服务**：延迟 24h 内，第三方服务存在失效可能，核心信息不依赖它
 2. **网页抓取和 API 源**（GitHub Trending、Anthropic、掘金及国内厂商官网）：页面结构或接口变更会导致失效，解析为 0 条时会按异常处理
-3. **Jina Reader**：DeepSeek、StepFun 和 Import AI 用它读取公开页面/API，并禁用缓存；第三方服务波动时保留已有内容
+3. **Jina Reader**：DeepSeek、StepFun、Import AI 用它读取公开页面/API，DeepMind RSS 失败时用它兜底；均禁用缓存，第三方服务波动时保留已有内容
 4. **本月无更新**：低频信源可能自然为空，页面只显示紧凑提示，不使用旧文章填充
 5. **同一事件多源报道**：为保持信源边界，一期只在信源内部按链接去重，不做跨源合并
 6. **arXiv 原始流量大**：后续接入前必须先确定过滤方式，不能直接展示未经筛选的原始流
