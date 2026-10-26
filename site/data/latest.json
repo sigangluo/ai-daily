@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-27T01:35:15+08:00",
+  "generated_at": "2026-10-27T01:39:51+08:00",
   "retention_days": 30,
   "fetch_days": 1,
   "tiers": [
@@ -790,7 +790,8 @@
       "homepage": "https://openai.com/products/release-notes/",
       "homepage_zh": "https://openai.com/zh-Hans-CN/products/release-notes/",
       "url": "https://r.jina.ai/https://openai.com/zh-Hans-CN/products/release-notes/rss.xml",
-      "status": "ok",
+      "status": "error",
+      "error": "页面或接口解析结果为 0 条，可能是结构已变化",
       "items": [
         {
           "title": "Share profiles within your Enterprise workspace",
@@ -1408,7 +1409,7 @@
           "title_zh_source": "official"
         }
       ],
-      "fresh_items": 0
+      "stale": true
     },
     {
       "id": "anthropic-news",
@@ -4523,6 +4524,19 @@
           "title_zh_source": "deepseek"
         },
         {
+          "title": "Anthropic’s IPO filing lays out a plan to ‘revolutionize every area of human endeavor’ with AI",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1018476/anthropic-ipo-details-s1-filed-sec",
+          "date": "2026-10-27",
+          "categories": [
+            "AI",
+            "Anthropic",
+            "Business",
+            "News"
+          ],
+          "title_zh": "Anthropic 的 IPO 文件提出用 AI“彻底变革人类活动的每个领域”的计划",
+          "title_zh_source": "deepseek"
+        },
+        {
           "title": "Can AI help solve the COBOL code crisis?",
           "url": "https://www.theverge.com/ai-artificial-intelligence/1018434/cobol-migration-legacy-code-openai-anthropic",
           "date": "2026-10-26",
@@ -4533,19 +4547,6 @@
             "Report"
           ],
           "title_zh": "AI 能帮助解决 COBOL 代码危机吗？",
-          "title_zh_source": "deepseek"
-        },
-        {
-          "title": "Anthropic’s IPO filing lays out a plan to ‘revolutionize every area of human endeavor’ with AI",
-          "url": "https://www.theverge.com/ai-artificial-intelligence/1018476/anthropic-ipo-details-s1-filed-sec",
-          "date": "2026-10-26",
-          "categories": [
-            "AI",
-            "Anthropic",
-            "Business",
-            "News"
-          ],
-          "title_zh": "Anthropic 的 IPO 文件提出用 AI“彻底变革人类活动的每个领域”的计划",
           "title_zh_source": "deepseek"
         },
         {
