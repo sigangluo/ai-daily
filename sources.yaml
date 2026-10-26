@@ -13,13 +13,14 @@ sources:
 
   # ============ T1 官方一手 ============
 
-  # --- 国内: 厂商官网无 RSS，通过 GitHub Releases 订阅模型发布 ---
-  - id: deepseek-releases
+  # --- 国内: 优先官网动态；无官网 RSS 的厂商通过 GitHub Releases 订阅 ---
+  - id: deepseek-news
     name: DeepSeek
     tier: T1
     region: cn
-    type: atom
-    url: https://github.com/deepseek-ai/DeepSeek-V3/releases.atom
+    type: web_list
+    url: https://r.jina.ai/https://www.deepseek.com/news/
+    note: 官网 News 有 AWS WAF，经 Jina Reader 读取公开页面，条目链接指向官网
     enabled: true
 
   - id: qwen-releases

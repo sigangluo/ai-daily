@@ -15,8 +15,9 @@ USER_AGENT = "ai-daily/1.0 (+https://github.com/sigangluo/ai-daily)"
 SHANGHAI = ZoneInfo("Asia/Shanghai")
 
 
-def request(url, body=None):
+def request(url, body=None, extra_headers=None):
     headers = {"User-Agent": USER_AGENT, "Accept": "*/*"}
+    headers.update(extra_headers or {})
     data = None
     if body is not None:
         data = json.dumps(body).encode("utf-8")
@@ -163,6 +164,48 @@ class HeadingArticleParser(HTMLParser):
             self.article["date"] = date_text(data)
 
 
+class DeepSeekParser(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.items = []
+        self.current = None
+        self.heading_depth = 0
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        classes = set(attrs.get("class", "").split())
+        if tag == "a" and classes.intersection(("ds-news-hero-card", "ds-news-list-item")):
+            self.current = {"url": clean_url(attrs.get("href", ""), "https://www.deepseek.com"),
+                            "title": [], "text": []}
+        elif self.current is not None and tag in ("h2", "h3"):
+            self.heading_depth += 1
+
+    def handle_endtag(self, tag):
+        if tag == "a" and self.current is not None:
+            title = clean_text(" ".join(self.current["title"]))
+            text = clean_text(" ".join(self.current["text"]))
+            match = re.search(r"(\d{4})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日", text)
+            if title and self.current["url"] and match:
+                date = f"{int(match.group(1)):04d}-{int(match.group(2)):02d}-{int(match.group(3)):02d}"
+                self.items.append({"title": title, "url": self.current["url"], "date": date})
+            self.current = None
+            self.heading_depth = 0
+        elif tag in ("h2", "h3") and self.heading_depth:
+            self.heading_depth -= 1
+
+    def handle_data(self, data):
+        if self.current is not None:
+            self.current["text"].append(data)
+            if self.heading_depth:
+                self.current["title"].append(data)
+
+
+def parse_deepseek(raw):
+    parser = DeepSeekParser()
+    parser.feed(raw.decode("utf-8", "replace"))
+    return parser.items
+
+
 class TrendingParser(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
@@ -257,6 +300,9 @@ def fetch_source(source):
     if source["id"] == "juejin-ai":
         raw = request(source["url"], {"id_type": 2, "sort_type": 300, "cate_id": "6809637773935378440", "limit": 30, "cursor": "0"})
         return parse_juejin(raw)
+    if source["id"] == "deepseek-news":
+        raw = request(source["url"], extra_headers={"X-Return-Format": "html"})
+        return parse_deepseek(raw)
     raw = request(source["url"])
     if source["id"] == "anthropic-news":
         return parse_anthropic(raw)

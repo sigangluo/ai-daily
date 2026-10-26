@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T21:07:29+08:00",
+  "generated_at": "2026-10-26T21:22:43+08:00",
   "tiers": [
     {
       "id": "T1",
@@ -34,13 +34,19 @@
   ],
   "sources": [
     {
-      "id": "deepseek-releases",
+      "id": "deepseek-news",
       "name": "DeepSeek",
       "tier": "T1",
       "region": "cn",
-      "url": "https://github.com/deepseek-ai/DeepSeek-V3/releases.atom",
+      "url": "https://r.jina.ai/https://www.deepseek.com/news/",
       "status": "ok",
-      "items": []
+      "items": [
+        {
+          "title": "DeepSeek V4.1 Flash：更强、更快、更普惠",
+          "url": "https://www.deepseek.com/news/deepseek-v4-1-flash/",
+          "date": "2026-09-10"
+        }
+      ]
     },
     {
       "id": "qwen-releases",

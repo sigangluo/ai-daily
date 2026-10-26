@@ -63,6 +63,7 @@ SOURCES.md                  信源说明（人工阅读）
 
 - 公众号通过 [Wechat2RSS](https://github.com/ttttmr/Wechat2RSS) 公共服务接入，可能有延迟或服务波动
 - GitHub Trending、Anthropic 和掘金依赖网页结构或公开接口，结构变化时需要更新解析器
+- DeepSeek 官网 News 有 AWS WAF，通过 Jina Reader 读取公开页面，条目仍跳转 DeepSeek 官网
 - GitHub Releases 只包含实际使用 Releases 的官方发布；没有 Releases 的仓库会显示近期暂无更新
 - 本站只保存标题、链接和少量元数据，文章版权属于原信源
 

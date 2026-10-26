@@ -17,11 +17,11 @@
 
 ## T1 · 官方一手（14）
 
-### 国内（6）—— 厂商官网无 RSS，经 GitHub Releases 订阅模型发布
+### 国内（6）—— 优先官网动态，其他厂商经 GitHub Releases 订阅模型发布
 
 | 信源 | 订阅地址 | 说明 |
 |---|---|---|
-| DeepSeek | [releases.atom](https://github.com/deepseek-ai/DeepSeek-V3/releases.atom) | DeepSeek-V3 系列 |
+| DeepSeek | [deepseek.com/news](https://www.deepseek.com/news/) | 官网 News 有 AWS WAF，经 Jina Reader 读取，链接指向官网 |
 | 通义 Qwen | [releases.atom](https://github.com/QwenLM/Qwen3/releases.atom) | 阿里 Qwen3 系列 |
 | 智谱 GLM | [releases.atom](https://github.com/zai-org/GLM-4.5/releases.atom) | GLM 系列 |
 | 月之暗面 Kimi | [releases.atom](https://github.com/MoonshotAI/Kimi-K2/releases.atom) | Kimi K2 系列 |
