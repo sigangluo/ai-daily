@@ -10,6 +10,50 @@
 #   T4 深度写作   - 低频高质的个人写作
 #   T5 论文       - HF 社区精选为主，arXiv 原始流经 LLM 强过滤，公众号中文解读
 
+homepages:
+  deepseek-news: https://www.deepseek.com/news/
+  qwen-research: https://qwen.ai/research
+  glm-release-notes: https://docs.z.ai/release-notes/new-released
+  kimi-blog: https://www.kimi.ai/blog/
+  minimax-blog: https://www.minimax.io/blog
+  minimax-news: https://www.minimax.io/news
+  stepfun-news: https://www.stepfun.com/news
+  openai-news: https://openai.com/news/
+  anthropic-news: https://www.anthropic.com/news
+  anthropic-engineering: https://www.anthropic.com/engineering
+  anthropic-research: https://www.anthropic.com/research
+  deepmind-blog: https://deepmind.google/blog/
+  google-research: https://research.google/blog/
+  mistral-news: https://mistral.ai/news/
+  huggingface-blog: https://huggingface.co/blog
+  github-blog-ai: https://github.blog/ai-and-ml/
+  nvidia-blog: https://blogs.nvidia.com/
+  qbitai: https://www.qbitai.com/
+  jiqizhixin: https://www.jiqizhixin.com/
+  36kr: https://www.36kr.com/
+  infoq-cn: https://www.infoq.cn/
+  mp-xinzhiyuan: https://wechat2rss.xlab.app/feed/ede30346413ea70dbef5d485ea5cbb95cca446e7.xml
+  mp-xixiaoyao: https://wechat2rss.xlab.app/feed/a1cd365aa14ed7d64cabfc8aa086da40ecaba34d.xml
+  techcrunch-ai: https://techcrunch.com/category/artificial-intelligence/
+  theverge-ai: https://www.theverge.com/ai-artificial-intelligence
+  arstechnica-ai: https://arstechnica.com/ai/
+  mit-tr-ai: https://www.technologyreview.com/topic/artificial-intelligence/
+  the-decoder: https://the-decoder.com/
+  hellogithub: https://hellogithub.com/
+  oschina: https://www.oschina.net/news
+  mp-appinn: https://www.appinn.com/
+  juejin-ai: https://juejin.cn/cate/6809637773935378440
+  github-trending: https://github.com/trending
+  producthunt: https://www.producthunt.com/
+  hackernews: https://news.ycombinator.com/
+  ruanyifeng: https://www.ruanyifeng.com/blog/
+  mp-fusheng: https://wechat2rss.xlab.app/feed/71257003d43d39b91ff9d38b6f3330c883dc8e0c.xml
+  simon-willison: https://simonwillison.net/
+  lilian-weng: https://lilianweng.github.io/
+  import-ai: https://importai.substack.com/
+  latent-space: https://www.latent.space/
+  bair: https://bair.berkeley.edu/blog/
+
 sources:
 
   # ============ T1 官方一手 ============

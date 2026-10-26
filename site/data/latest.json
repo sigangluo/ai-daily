@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-27T00:07:07+08:00",
+  "generated_at": "2026-10-27T00:17:57+08:00",
   "retention_days": 30,
   "fetch_days": 1,
   "tiers": [
@@ -40,6 +40,7 @@
       "name": "DeepSeek",
       "tier": "T1",
       "region": "cn",
+      "homepage": "https://www.deepseek.com/news/",
       "url": "https://r.jina.ai/https://www.deepseek.com/news/",
       "status": "ok",
       "items": [],
@@ -50,6 +51,7 @@
       "name": "通义 Qwen Research",
       "tier": "T1",
       "region": "cn",
+      "homepage": "https://qwen.ai/research",
       "url": "https://qwen.ai/api/v2/article/retrieval?type=qwen_ai&language=zh-CN",
       "status": "ok",
       "items": [],
@@ -60,6 +62,7 @@
       "name": "智谱 GLM Release Notes",
       "tier": "T1",
       "region": "cn",
+      "homepage": "https://docs.z.ai/release-notes/new-released",
       "url": "https://docs.z.ai/release-notes/new-released",
       "status": "ok",
       "items": [],
@@ -70,6 +73,7 @@
       "name": "月之暗面 Kimi Blog",
       "tier": "T1",
       "region": "cn",
+      "homepage": "https://www.kimi.ai/blog/",
       "url": "https://www.kimi.ai/blog/",
       "status": "ok",
       "items": [
@@ -86,6 +90,7 @@
       "name": "MiniMax Research",
       "tier": "T1",
       "region": "cn",
+      "homepage": "https://www.minimax.io/blog",
       "url": "https://www.minimax.io/blog",
       "status": "ok",
       "items": [
@@ -107,6 +112,7 @@
       "name": "MiniMax News",
       "tier": "T1",
       "region": "cn",
+      "homepage": "https://www.minimax.io/news",
       "url": "https://www.minimax.io/api/news?page=1&locale=en",
       "status": "ok",
       "items": [
@@ -123,6 +129,7 @@
       "name": "阶跃星辰",
       "tier": "T1",
       "region": "cn",
+      "homepage": "https://www.stepfun.com/news",
       "url": "https://r.jina.ai/https://www.stepfun.com/news",
       "status": "ok",
       "items": [],
@@ -133,6 +140,7 @@
       "name": "OpenAI News",
       "tier": "T1",
       "region": "intl",
+      "homepage": "https://openai.com/news/",
       "url": "https://openai.com/news/rss.xml",
       "status": "ok",
       "items": [
@@ -454,6 +462,7 @@
       "name": "Anthropic News",
       "tier": "T1",
       "region": "intl",
+      "homepage": "https://www.anthropic.com/news",
       "url": "https://www.anthropic.com/news",
       "status": "ok",
       "items": [
@@ -485,6 +494,7 @@
       "name": "Anthropic Engineering",
       "tier": "T1",
       "region": "intl",
+      "homepage": "https://www.anthropic.com/engineering",
       "url": "https://www.anthropic.com/engineering",
       "status": "ok",
       "items": [
@@ -501,6 +511,7 @@
       "name": "Anthropic Research",
       "tier": "T1",
       "region": "intl",
+      "homepage": "https://www.anthropic.com/research",
       "url": "https://www.anthropic.com/research",
       "status": "ok",
       "items": [
@@ -572,6 +583,7 @@
       "name": "Google DeepMind",
       "tier": "T1",
       "region": "intl",
+      "homepage": "https://deepmind.google/blog/",
       "url": "https://deepmind.google/blog/rss.xml",
       "status": "ok",
       "items": [
@@ -623,6 +635,7 @@
       "name": "Google Research",
       "tier": "T1",
       "region": "intl",
+      "homepage": "https://research.google/blog/",
       "url": "https://research.google/blog/rss/",
       "status": "ok",
       "items": [
@@ -689,6 +702,7 @@
       "name": "Mistral AI",
       "tier": "T1",
       "region": "intl",
+      "homepage": "https://mistral.ai/news/",
       "url": "https://mistral.ai/news/rss",
       "status": "ok",
       "items": [
@@ -725,6 +739,7 @@
       "name": "Hugging Face Blog",
       "tier": "T1",
       "region": "intl",
+      "homepage": "https://huggingface.co/blog",
       "url": "https://huggingface.co/blog/feed.xml",
       "status": "ok",
       "items": [
@@ -861,6 +876,7 @@
       "name": "GitHub Blog · AI & ML",
       "tier": "T1",
       "region": "intl",
+      "homepage": "https://github.blog/ai-and-ml/",
       "url": "https://github.blog/ai-and-ml/feed/",
       "status": "ok",
       "items": [
@@ -907,6 +923,7 @@
       "name": "NVIDIA Blog",
       "tier": "T1",
       "region": "intl",
+      "homepage": "https://blogs.nvidia.com/",
       "url": "https://blogs.nvidia.com/feed/",
       "status": "ok",
       "items": [
@@ -1008,6 +1025,7 @@
       "name": "量子位",
       "tier": "T2",
       "region": "cn",
+      "homepage": "https://www.qbitai.com/",
       "url": "https://www.qbitai.com/feed",
       "status": "ok",
       "items": [
@@ -1119,6 +1137,7 @@
       "name": "机器之心",
       "tier": "T2",
       "region": "cn",
+      "homepage": "https://www.jiqizhixin.com/",
       "url": "https://wechat2rss.xlab.app/feed/51e92aad2728acdd1fda7314be32b16639353001.xml",
       "status": "ok",
       "items": [
@@ -1230,6 +1249,7 @@
       "name": "36氪",
       "tier": "T2",
       "region": "cn",
+      "homepage": "https://www.36kr.com/",
       "url": "https://www.36kr.com/feed",
       "status": "ok",
       "items": [
@@ -1391,6 +1411,7 @@
       "name": "InfoQ 中文",
       "tier": "T2",
       "region": "cn",
+      "homepage": "https://www.infoq.cn/",
       "url": "https://www.infoq.cn/feed",
       "status": "ok",
       "items": [
@@ -1502,6 +1523,7 @@
       "name": "新智元",
       "tier": "T2",
       "region": "cn",
+      "homepage": "https://wechat2rss.xlab.app/feed/ede30346413ea70dbef5d485ea5cbb95cca446e7.xml",
       "url": "https://wechat2rss.xlab.app/feed/ede30346413ea70dbef5d485ea5cbb95cca446e7.xml",
       "status": "ok",
       "items": [
@@ -1613,6 +1635,7 @@
       "name": "夕小瑶科技说",
       "tier": "T2",
       "region": "cn",
+      "homepage": "https://wechat2rss.xlab.app/feed/a1cd365aa14ed7d64cabfc8aa086da40ecaba34d.xml",
       "url": "https://wechat2rss.xlab.app/feed/a1cd365aa14ed7d64cabfc8aa086da40ecaba34d.xml",
       "status": "ok",
       "items": [
@@ -1709,6 +1732,7 @@
       "name": "TechCrunch AI",
       "tier": "T2",
       "region": "intl",
+      "homepage": "https://techcrunch.com/category/artificial-intelligence/",
       "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
       "status": "ok",
       "items": [
@@ -1820,6 +1844,7 @@
       "name": "The Verge AI",
       "tier": "T2",
       "region": "intl",
+      "homepage": "https://www.theverge.com/ai-artificial-intelligence",
       "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
       "status": "ok",
       "items": [
@@ -1879,13 +1904,14 @@
           "date": "2026-10-24"
         }
       ],
-      "fresh_items": 3
+      "fresh_items": 4
     },
     {
       "id": "arstechnica-ai",
       "name": "Ars Technica AI",
       "tier": "T2",
       "region": "intl",
+      "homepage": "https://arstechnica.com/ai/",
       "url": "https://arstechnica.com/ai/feed/",
       "status": "ok",
       "items": [
@@ -1997,6 +2023,7 @@
       "name": "MIT Technology Review AI",
       "tier": "T2",
       "region": "intl",
+      "homepage": "https://www.technologyreview.com/topic/artificial-intelligence/",
       "url": "https://www.technologyreview.com/topic/artificial-intelligence/feed",
       "status": "ok",
       "items": [
@@ -2058,6 +2085,7 @@
       "name": "The Decoder",
       "tier": "T2",
       "region": "intl",
+      "homepage": "https://the-decoder.com/",
       "url": "https://the-decoder.com/feed/",
       "status": "ok",
       "items": [
@@ -2119,6 +2147,7 @@
       "name": "HelloGitHub",
       "tier": "T3",
       "region": "cn",
+      "homepage": "https://hellogithub.com/",
       "url": "https://hellogithub.com/rss",
       "status": "ok",
       "items": [
@@ -2135,6 +2164,7 @@
       "name": "开源中国",
       "tier": "T3",
       "region": "cn",
+      "homepage": "https://www.oschina.net/news",
       "url": "https://www.oschina.net/news/rss",
       "status": "ok",
       "items": [
@@ -2396,6 +2426,7 @@
       "name": "小众软件",
       "tier": "T3",
       "region": "cn",
+      "homepage": "https://www.appinn.com/",
       "url": "https://wechat2rss.xlab.app/feed/3261d5a75cfef238650a2cabd4bbf99669c2f334.xml",
       "status": "ok",
       "items": [
@@ -2507,6 +2538,7 @@
       "name": "掘金 AI 频道",
       "tier": "T3",
       "region": "cn",
+      "homepage": "https://juejin.cn/cate/6809637773935378440",
       "url": "https://api.juejin.cn/recommend_api/v1/article/recommend_cate_feed",
       "status": "ok",
       "items": [
@@ -2568,6 +2600,7 @@
       "name": "GitHub Trending",
       "tier": "T3",
       "region": "intl",
+      "homepage": "https://github.com/trending",
       "url": "https://github.com/trending",
       "status": "ok",
       "items": [
@@ -2718,6 +2751,7 @@
       "name": "Product Hunt",
       "tier": "T3",
       "region": "intl",
+      "homepage": "https://www.producthunt.com/",
       "url": "https://www.producthunt.com/feed",
       "status": "ok",
       "items": [
@@ -2979,6 +3013,7 @@
       "name": "Hacker News 首页",
       "tier": "T3",
       "region": "intl",
+      "homepage": "https://news.ycombinator.com/",
       "url": "https://hnrss.org/frontpage",
       "status": "ok",
       "items": [
@@ -3095,6 +3130,7 @@
       "name": "阮一峰·科技爱好者周刊",
       "tier": "T4",
       "region": "cn",
+      "homepage": "https://www.ruanyifeng.com/blog/",
       "url": "https://www.ruanyifeng.com/blog/atom.xml",
       "status": "ok",
       "items": [
@@ -3121,6 +3157,7 @@
       "name": "傅盛",
       "tier": "T4",
       "region": "cn",
+      "homepage": "https://wechat2rss.xlab.app/feed/71257003d43d39b91ff9d38b6f3330c883dc8e0c.xml",
       "url": "https://wechat2rss.xlab.app/feed/71257003d43d39b91ff9d38b6f3330c883dc8e0c.xml",
       "status": "ok",
       "items": [
@@ -3222,6 +3259,7 @@
       "name": "Simon Willison",
       "tier": "T4",
       "region": "intl",
+      "homepage": "https://simonwillison.net/",
       "url": "https://simonwillison.net/atom/everything/",
       "status": "ok",
       "items": [
@@ -3383,6 +3421,7 @@
       "name": "Lilian Weng",
       "tier": "T4",
       "region": "intl",
+      "homepage": "https://lilianweng.github.io/",
       "url": "https://lilianweng.github.io/index.xml",
       "status": "ok",
       "items": [],
@@ -3393,6 +3432,7 @@
       "name": "Import AI",
       "tier": "T4",
       "region": "intl",
+      "homepage": "https://importai.substack.com/",
       "url": "https://r.jina.ai/https://importai.substack.com/api/v1/posts?limit=10",
       "status": "ok",
       "items": [
@@ -3429,6 +3469,7 @@
       "name": "Latent Space",
       "tier": "T4",
       "region": "intl",
+      "homepage": "https://www.latent.space/",
       "url": "https://www.latent.space/feed",
       "status": "ok",
       "items": [
@@ -3540,6 +3581,7 @@
       "name": "Berkeley AI Research",
       "tier": "T4",
       "region": "intl",
+      "homepage": "https://bair.berkeley.edu/blog/",
       "url": "https://bair.berkeley.edu/blog/feed.xml",
       "status": "ok",
       "items": [],

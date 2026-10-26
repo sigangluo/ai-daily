@@ -38,6 +38,9 @@ def load_sources():
         missing = [key for key in ("id", "name", "tier", "region", "type", "url") if not source.get(key)]
         if missing:
             raise ValueError(f"信源缺少字段 {missing}: {source}")
+        source["homepage"] = config.get("homepages", {}).get(source["id"], source["url"])
+        if not source["homepage"].startswith("https://"):
+            raise ValueError(f"信源主页必须使用 HTTPS: {source['id']}")
         if source["id"] in ids:
             raise ValueError(f"重复的信源 ID: {source['id']}")
         if source["tier"] not in TIERS:
@@ -87,7 +90,7 @@ def normalize_items(items, now, days):
 
 
 def build_source(source, now, previous, fetch_days):
-    result = {key: source[key] for key in ("id", "name", "tier", "region")}
+    result = {key: source[key] for key in ("id", "name", "tier", "region", "homepage")}
     old = previous.get(source["id"], {})
     old_items = normalize_items(old.get("items", []), now, RETENTION_DAYS)
     try:

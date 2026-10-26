@@ -18,11 +18,26 @@
     }
   }
 
+  function domain(value) {
+    try {
+      return new URL(value).hostname.replace(/^www\./, '');
+    } catch (error) {
+      return '信源';
+    }
+  }
+
   function sourceCard(source) {
     const card = node('article', 'source-card');
     card.id = 'source-' + source.id;
     const header = node('header', 'source-header');
     header.appendChild(node('h3', '', source.name));
+    const homepage = source.homepage || source.url;
+    const homeLink = node('a', 'source-home', domain(homepage) + ' ↗');
+    homeLink.href = safeUrl(homepage);
+    homeLink.target = '_blank';
+    homeLink.rel = 'noopener';
+    homeLink.title = '访问信源：' + homepage;
+    header.appendChild(homeLink);
     if (source.status === 'error') {
       const status = node('span', 'source-status', source.stale ? '显示上次内容' : '暂不可用');
       status.title = source.error || '信源暂时不可用';
