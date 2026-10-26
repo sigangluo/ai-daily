@@ -10,6 +10,7 @@ from zoneinfo import ZoneInfo
 import yaml
 
 from fetchers import fetch_source
+from translate import localize_items
 
 ROOT = Path(__file__).resolve().parent.parent
 CONFIG_PATH = ROOT / "sources.yaml"
@@ -39,6 +40,7 @@ def load_sources():
         if missing:
             raise ValueError(f"信源缺少字段 {missing}: {source}")
         source["homepage"] = config.get("homepages", {}).get(source["id"], source["url"])
+        source["homepage_zh"] = config.get("homepages_zh", {}).get(source["id"], source["homepage"])
         if not source["homepage"].startswith("https://"):
             raise ValueError(f"信源主页必须使用 HTTPS: {source['id']}")
         if source["id"] in ids:
@@ -87,12 +89,22 @@ def normalize_items(items, now, days):
             normalized["meta"] = item["meta"][:4]
         if item.get("categories"):
             normalized["categories"] = item["categories"][:4]
+        if item.get("title_zh"):
+            normalized["title_zh"] = " ".join(item["title_zh"].split())[:500]
+        if item.get("title_zh_source"):
+            normalized["title_zh_source"] = item["title_zh_source"]
+        if item.get("url_zh"):
+            normalized["url_zh"] = item["url_zh"]
+        if item.get("categories_zh"):
+            normalized["categories_zh"] = item["categories_zh"][:4]
+        if item.get("meta_zh"):
+            normalized["meta_zh"] = item["meta_zh"][:4]
         unique[url] = normalized
     return sorted(unique.values(), key=lambda item: (item["date"], item["title"]), reverse=True)
 
 
 def build_source(source, now, previous, fetch_days):
-    result = {key: source[key] for key in ("id", "name", "tier", "region", "homepage")}
+    result = {key: source[key] for key in ("id", "name", "tier", "region", "homepage", "homepage_zh")}
     old = previous.get(source["id"], {})
     old_items = normalize_items(old.get("items", []), now, RETENTION_DAYS)
     try:
@@ -143,6 +155,7 @@ def main():
     missing = [source["id"] for source in enabled if source["id"] not in merged]
     if missing:
         raise SystemExit(f"以下信源没有数据，请先完整更新: {', '.join(missing)}")
+    localize_items(ordered)
     output = {
         "generated_at": now.isoformat(timespec="seconds"),
         "retention_days": RETENTION_DAYS,

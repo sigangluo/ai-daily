@@ -1,6 +1,6 @@
 # AI 日报信源清单
 
-> 最后更新：2026-10-26 · 一期接入 **42 个信源**；T5 论文暂缓接入
+> 最后更新：2026-10-26 · 一期接入 **44 个信源**；T5 论文暂缓接入
 > 机器可读配置见 [sources.yaml](sources.yaml)
 
 ## 分层设计
@@ -15,7 +15,28 @@
 
 ---
 
-## T1 · 官方一手（17）
+## 整体官网核查
+
+英文界面显示原标题与原文链接；中文界面优先使用官方中文，缺失时由 DeepSeek 补译并标记“译”。官网已有分类在信源内部展示和筛选，不自行发明分类。Research Index / Publications 等论文索引仍属于暂缓接入的 T5。
+
+| 信源 | 官网栏目与分类保留 | 中文标题来源 |
+|---|---|---|
+| DeepSeek | News；中英文页面 | 官方中英文，Research Index 暂缓 |
+| Qwen | Research；Research / Open-Source / Release | 官网 zh-CN / en-US |
+| 智谱 GLM | 官方 Release Notes | DeepSeek 补译 |
+| Kimi | 官方技术博客 | 官网 `/blog/` 与 `/zh-hans/blog/` |
+| MiniMax | Research、News 及官方 tags | 官网 `.io` 与 `.cn` |
+| 阶跃星辰 | 模型发布、技术进展、公司动态及标签 | 官方中文 |
+| OpenAI | News 分类；Release Notes 产品与发布阶段 | 官网中文优先，RSS 补齐历史 |
+| Anthropic | News、Engineering、Research 及 Topic/团队分类 | DeepSeek 补译 |
+| Google DeepMind | Models、Research、Science、Responsibility & Safety | DeepSeek 补译 |
+| Google Research | 官方 Labels | DeepSeek 补译 |
+| Mistral | Company、Solutions、Engineering、Research、Product | DeepSeek 补译 |
+| Hugging Face / GitHub Blog | 官方博客及 RSS 已有分类 | DeepSeek 补译 |
+| NVIDIA | 企业 Blog + Technical Blog 及 Atom 分类 | DeepSeek 补译 |
+| T2 / T3 / T4 | 保留 RSS/Atom 已有分类、原始链接和信源定位 | 中文原生内容直接使用，英文由 DeepSeek 补译 |
+
+## T1 · 官方一手（19）
 
 ### 国内（7）—— 官网动态、技术博客与官方 Release Notes
 
@@ -31,11 +52,12 @@
 
 > 字节豆包、百度文心无稳定的公开动态订阅入口，其动态由 T2 国内媒体覆盖。
 
-### 国外（10）
+### 国外（12）
 
 | 信源 | 订阅地址 | 接入方式 |
 |---|---|---|
 | OpenAI News | [中文 News](https://openai.com/zh-Hans-CN/news/) / [RSS](https://openai.com/news/rss.xml) | 中文官网提供本地化标题和链接，RSS 补齐 30 天并读取官方分类 |
+| OpenAI Release Notes | [中文 Release Notes](https://openai.com/zh-Hans-CN/products/release-notes/) / [RSS](https://openai.com/zh-Hans-CN/products/release-notes/rss.xml) | 完整更新日志，保留 API/ChatGPT/Codex 和发布阶段 |
 | Anthropic News | [anthropic.com/news](https://www.anthropic.com/news) | 官方新闻列表 |
 | Anthropic Engineering | [anthropic.com/engineering](https://www.anthropic.com/engineering) | 官方工程博客 |
 | Anthropic Research | [anthropic.com/research](https://www.anthropic.com/research) | 官方研究博客 |
@@ -44,7 +66,8 @@
 | Mistral AI | [RSS](https://mistral.ai/news/rss) | RSS |
 | Hugging Face Blog | [RSS](https://huggingface.co/blog/feed.xml) | RSS |
 | GitHub Blog · AI & ML | [RSS](https://github.blog/ai-and-ml/feed/) | RSS |
-| NVIDIA Blog | [RSS](https://blogs.nvidia.com/feed/) | RSS |
+| NVIDIA Blog | [RSS](https://blogs.nvidia.com/feed/) | 企业新闻博客 |
+| NVIDIA Technical Blog | [developer.nvidia.com/blog](https://developer.nvidia.com/blog/) | 官方技术博客，保留 Atom 分类 |
 
 ## T2 · 聚合媒体（11）
 
@@ -132,7 +155,8 @@
 
 1. **公众号依赖 Wechat2RSS 公共服务**：延迟 24h 内，第三方服务存在失效可能，核心信息不依赖它
 2. **网页抓取和 API 源**（GitHub Trending、Anthropic、掘金及国内厂商官网）：页面结构或接口变更会导致失效，解析为 0 条时会按异常处理
-3. **Jina Reader**：DeepSeek、StepFun、Import AI 用它读取公开页面/API，DeepMind RSS 失败时用它兜底；均禁用缓存，第三方服务波动时保留已有内容
-4. **本月无更新**：低频信源可能自然为空，页面只显示紧凑提示，不使用旧文章填充
+3. **Jina Reader**：DeepSeek、StepFun、Import AI 用它读取公开页面/API，DeepMind RSS 失败时用它兜底；第三方服务波动时保留已有内容
+4. **DeepSeek 翻译**：官方中文永远优先，翻译结果持久缓存；API 失败时保留原文，不伪造中文标题
+5. **本月无更新**：低频信源可能自然为空，页面只显示紧凑提示，不使用旧文章填充
 5. **同一事件多源报道**：为保持信源边界，一期只在信源内部按链接去重，不做跨源合并
 6. **arXiv 原始流量大**：后续接入前必须先确定过滤方式，不能直接展示未经筛选的原始流

@@ -1,7 +1,8 @@
 # AI 日报信源配置
-# 最后更新: 2026-10-26
-# 所有 enabled: true 的信源均已实测可访问（2026-10-26 验证）
+# 最后更新: 2026-10-27
+# 所有 enabled: true 的信源均已实测可访问（2026-10-27 验证）
 # 更新方式: --bootstrap 回填 30 天；每日默认拉取 1 天并合并，保留滚动 30 天
+# 中英文: 官方中文优先，缺失标题由 DeepSeek 翻译；homepages_zh 为中文官网入口
 #
 # 层级说明:
 #   T1 官方一手   - 模型发布、官方博客，准确性最高，全收
@@ -11,14 +12,15 @@
 #   T5 论文       - HF 社区精选为主，arXiv 原始流经 LLM 强过滤，公众号中文解读
 
 homepages:
-  deepseek-news: https://www.deepseek.com/news/
+  deepseek-news: https://www.deepseek.com/en/news/
   qwen-research: https://qwen.ai/research
   glm-release-notes: https://docs.z.ai/release-notes/new-released
   kimi-blog: https://www.kimi.ai/blog/
   minimax-blog: https://www.minimax.io/blog
   minimax-news: https://www.minimax.io/news
   stepfun-news: https://www.stepfun.com/news
-  openai-news: https://openai.com/zh-Hans-CN/news/
+  openai-news: https://openai.com/news/
+  openai-release-notes: https://openai.com/products/release-notes/
   anthropic-news: https://www.anthropic.com/news
   anthropic-engineering: https://www.anthropic.com/engineering
   anthropic-research: https://www.anthropic.com/research
@@ -28,6 +30,7 @@ homepages:
   huggingface-blog: https://huggingface.co/blog
   github-blog-ai: https://github.blog/ai-and-ml/
   nvidia-blog: https://blogs.nvidia.com/
+  nvidia-developer: https://developer.nvidia.com/blog/
   qbitai: https://www.qbitai.com/
   jiqizhixin: https://www.jiqizhixin.com/
   36kr: https://www.36kr.com/
@@ -53,6 +56,15 @@ homepages:
   import-ai: https://importai.substack.com/
   latent-space: https://www.latent.space/
   bair: https://bair.berkeley.edu/blog/
+
+homepages_zh:
+  deepseek-news: https://www.deepseek.com/news/
+  qwen-research: https://qwen.ai/research
+  kimi-blog: https://www.kimi.ai/zh-hans/blog/
+  minimax-blog: https://www.minimax.cn/blog
+  minimax-news: https://www.minimax.cn/news
+  openai-news: https://openai.com/zh-Hans-CN/news/
+  openai-release-notes: https://openai.com/zh-Hans-CN/products/release-notes/
 
 sources:
 
@@ -129,6 +141,15 @@ sources:
     note: RSS 补齐 30 天并读取官方分类；中文官网提供本地化标题和链接
     enabled: true
 
+  - id: openai-release-notes
+    name: OpenAI Release Notes
+    tier: T1
+    region: intl
+    type: web_list
+    url: https://r.jina.ai/https://openai.com/zh-Hans-CN/products/release-notes/rss.xml
+    note: 完整 Release Notes RSS；中文页面提供本地化标题，按 changelog anchor 去重
+    enabled: true
+
   - id: anthropic-news
     name: Anthropic News
     tier: T1
@@ -199,6 +220,14 @@ sources:
     region: intl
     type: rss
     url: https://blogs.nvidia.com/feed/
+    enabled: true
+
+  - id: nvidia-developer
+    name: NVIDIA Technical Blog
+    tier: T1
+    region: intl
+    type: atom
+    url: https://developer.nvidia.com/blog/feed/
     enabled: true
 
   # ============ T2 聚合媒体 ============

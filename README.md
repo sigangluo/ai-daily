@@ -1,6 +1,6 @@
 # AI Daily
 
-按层级和信源浏览 AI 资讯、开源项目与深度写作。保留原文语言，不翻译、不生成摘要，点击标题直达原文。
+按层级和信源浏览 AI 资讯、开源项目与深度写作。英文界面显示原文，中文界面优先使用官方中文标题，缺失时由 DeepSeek 补译；不生成摘要，点击直达原文。
 
 **在线阅读：<https://sigangluo.github.io/ai-daily/>**
 
@@ -11,9 +11,17 @@
 - **T3 · 社区与项目**：GitHub Trending、掘金 AI、Product Hunt、Hacker News 等
 - **T4 · 深度写作**：个人博客与低频技术写作
 
-一期接入 **42 个信源**，按「层级 → 国内/国外 → 信源」展示。T5 论文信源保留在配置中，但暂未启用，筛选与展示方式另行讨论。
+一期接入 **44 个信源**，按「层级 → 国内/国外 → 信源」展示。T5 论文信源保留在配置中，但暂未启用，筛选与展示方式另行讨论。
 
 完整清单和接入方式见 [SOURCES.md](SOURCES.md)，程序只读取 [sources.yaml](sources.yaml) 中 `enabled: true` 的信源。
+
+## 中英文与分类
+
+- **English**：显示官网原标题、原文链接和英文界面。
+- **中文**：优先显示官方中文标题与中文链接；没有官方中文时由 DeepSeek 翻译并标记“译”。
+- DeepSeek、Qwen、Kimi、MiniMax、OpenAI 使用官网已有的中英文版本合并，不把两种语言当成两条内容。
+- 官网已有分类会保留，可在每个信源内部筛选；仓库名、产品名等专有名称不强行翻译。
+- 翻译缓存保存在 `data/translations.json`，每日只翻译新增或变化的标题。密钥只配置为 GitHub Actions Secret `DEEPSEEK_API_KEY`。
 
 ## 每日更新
 
@@ -55,10 +63,12 @@ python3 -m venv .venv
 .github/workflows/daily.yml  每日抓取、提交和 Pages 部署
 scripts/fetchers.py         RSS/Atom、网页与公开 API 解析器
 scripts/update.py           信源校验、抓取、容错与数据生成
+scripts/translate.py        DeepSeek 标题翻译与缓存
 scripts/serve.py            本地静态预览
 site/index.html             页面结构
 site/assets/                样式与前端渲染
 site/data/latest.json       自动生成的当前内容快照
+data/translations.json      标题翻译缓存
 sources.yaml                信源配置（程序读取）
 SOURCES.md                  信源说明（人工阅读）
 ```
@@ -71,8 +81,9 @@ SOURCES.md                  信源说明（人工阅读）
 
 - 公众号通过 [Wechat2RSS](https://github.com/ttttmr/Wechat2RSS) 公共服务接入，可能有延迟或服务波动
 - GitHub Trending、Anthropic、掘金及国内厂商官网依赖网页结构或公开接口，结构变化时需要更新解析器
-- DeepSeek 官网 News 有 AWS WAF；DeepSeek、StepFun、Import AI 通过 Jina Reader 读取公开内容并禁用缓存，DeepMind RSS 失败时也用它兜底，条目仍跳转官方原文
+- DeepSeek 官网 News 有 AWS WAF；DeepSeek、StepFun、Import AI 通过 Jina Reader 读取公开内容，DeepMind RSS 失败时也用它兜底，条目仍跳转官方原文
 - OpenAI 使用英文 RSS 补齐 30 天和官方分类，中文官网提供本地化标题与链接；中文页读取失败时保留英文 RSS 内容
+- DeepSeek 翻译失败时保留原文和已有缓存，不阻塞其他信源更新
 - 低频信源可能近 30 天没有新内容，这是正常状态，不使用旧文章填充
 - 本站只保存标题、链接和少量元数据，文章版权属于原信源
 

@@ -22,11 +22,12 @@ def request(url, body=None, extra_headers=None):
     if body is not None:
         data = json.dumps(body).encode("utf-8")
         headers["Content-Type"] = "application/json"
+    timeout = 75 if url.startswith("https://r.jina.ai/") else 30
     last_error = None
     for attempt in range(3):
         try:
             req = urllib.request.Request(url, data=data, headers=headers)
-            with urllib.request.urlopen(req, timeout=30) as response:
+            with urllib.request.urlopen(req, timeout=timeout) as response:
                 return response.read()
         except (urllib.error.URLError, TimeoutError) as error:
             last_error = error
@@ -87,6 +88,17 @@ def child_values(node, names):
     return [clean_text(child.text) for child in node if local_name(child.tag) in names]
 
 
+def category_values(node):
+    values = []
+    for child in node:
+        if local_name(child.tag) != "category":
+            continue
+        value = clean_text(child.text) or clean_text(child.attrib.get("term", "") or child.attrib.get("label", ""))
+        if value and value not in values:
+            values.append(value)
+    return values
+
+
 def parse_feed(raw, source):
     root = ET.fromstring(raw)
     entries = [node for node in root.iter() if local_name(node.tag) in ("item", "entry")]
@@ -110,7 +122,7 @@ def parse_feed(raw, source):
         url = clean_url(url, source["url"])
         if title and url:
             item = {"title": title, "url": url, "date": date_text(dates[0] if dates else "")}
-            categories = child_values(entry, ("category",))
+            categories = category_values(entry)
             if categories:
                 item["categories"] = categories
             items.append(item)
@@ -126,13 +138,16 @@ class HeadingArticleParser(HTMLParser):
         self.anchor = None
         self.heading_depth = 0
         self.in_time = False
+        self.in_topic = False
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
         if tag == "article":
-            self.article = {"links": [], "date": "", "title": []}
+            self.article = {"links": [], "date": "", "title": [], "categories": []}
         elif self.article is not None and tag == "a":
             self.anchor = {"url": clean_url(attrs.get("href", ""), self.base_url), "heading": [], "plain": []}
+            if "TopicLink" in attrs.get("class", ""):
+                self.in_topic = True
         elif self.article is not None and tag in ("h1", "h2", "h3"):
             self.heading_depth += 1
         elif self.article is not None and tag == "time":
@@ -148,7 +163,10 @@ class HeadingArticleParser(HTMLParser):
                 candidates = [link for link in self.article["links"]
                               if clean_text(" ".join(link["plain"])) == article_title]
             if candidates and candidates[0]["url"]:
-                self.articles.append({"title": article_title, "url": candidates[0]["url"], "date": self.article["date"]})
+                item = {"title": article_title, "url": candidates[0]["url"], "date": self.article["date"]}
+                if self.article["categories"]:
+                    item["categories"] = self.article["categories"]
+                self.articles.append(item)
             self.article = None
             self.anchor = None
         elif tag == "a" and self.anchor is not None:
@@ -156,6 +174,7 @@ class HeadingArticleParser(HTMLParser):
                 self.article["links"].append(self.anchor)
             self.anchor = None
             self.heading_depth = 0
+            self.in_topic = False
         elif tag in ("h1", "h2", "h3") and self.heading_depth:
             self.heading_depth -= 1
         elif tag == "time":
@@ -164,6 +183,10 @@ class HeadingArticleParser(HTMLParser):
     def handle_data(self, data):
         if self.article is not None and self.heading_depth:
             self.article["title"].append(data)
+        if self.article is not None and self.in_topic:
+            value = clean_text(data)
+            if value and value not in self.article["categories"]:
+                self.article["categories"].append(value)
         if self.anchor is not None:
             self.anchor["plain"].append(data)
             if self.heading_depth:
@@ -192,9 +215,8 @@ class DeepSeekParser(HTMLParser):
         if tag == "a" and self.current is not None:
             title = clean_text(" ".join(self.current["title"]))
             text = clean_text(" ".join(self.current["text"]))
-            match = re.search(r"(\d{4})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日", text)
-            if title and self.current["url"] and match:
-                date = f"{int(match.group(1)):04d}-{int(match.group(2)):02d}-{int(match.group(3)):02d}"
+            date = date_from_text(text)
+            if title and self.current["url"] and date:
                 self.items.append({"title": title, "url": self.current["url"], "date": date})
             self.current = None
             self.heading_depth = 0
@@ -227,39 +249,52 @@ def date_from_text(value):
 
 
 class AnchorCardParser(HTMLParser):
-    def __init__(self, base_url, prefixes):
+    def __init__(self, base_url, prefixes, capture_categories=False):
         super().__init__(convert_charrefs=True)
         self.base_url = base_url
         self.prefixes = prefixes
+        self.capture_categories = capture_categories
         self.items = []
         self.current = None
         self.heading_depth = 0
+        self.in_category = False
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
         if tag == "a" and self.current is None:
             url = clean_url(attrs.get("href", ""), self.base_url)
             if url and any(urllib.parse.urlsplit(url).path.startswith(prefix) for prefix in self.prefixes):
-                self.current = {"url": url, "title": [], "text": []}
+                self.current = {"url": url, "title": [], "text": [], "categories": []}
         elif self.current is not None and tag in ("h2", "h3"):
             self.heading_depth += 1
+        elif self.current is not None and tag == "span" and self.capture_categories and "bg-[#F4F4F4]" in attrs.get("class", ""):
+            self.in_category = True
 
     def handle_endtag(self, tag):
         if tag == "a" and self.current is not None:
             title = clean_text(" ".join(self.current["title"]))
             date = date_from_text(" ".join(self.current["text"]))
             if title and date:
-                self.items.append({"title": title, "url": self.current["url"], "date": date})
+                item = {"title": title, "url": self.current["url"], "date": date}
+                if self.current["categories"]:
+                    item["categories"] = self.current["categories"]
+                self.items.append(item)
             self.current = None
             self.heading_depth = 0
         elif tag in ("h2", "h3") and self.heading_depth:
             self.heading_depth -= 1
+        elif tag == "span":
+            self.in_category = False
 
     def handle_data(self, data):
         if self.current is not None:
             self.current["text"].append(data)
             if self.heading_depth:
                 self.current["title"].append(data)
+            if self.in_category:
+                value = clean_text(data)
+                if value and value not in self.current["categories"]:
+                    self.current["categories"].append(value)
 
 
 class KimiParser(HTMLParser):
@@ -349,8 +384,8 @@ class ZaiParser(HTMLParser):
             self.current["title"].append(data)
 
 
-def parse_cards(raw, base_url, prefixes):
-    parser = AnchorCardParser(base_url, prefixes)
+def parse_cards(raw, base_url, prefixes, capture_categories=False):
+    parser = AnchorCardParser(base_url, prefixes, capture_categories)
     parser.feed(raw.decode("utf-8", "replace"))
     return parser.items
 
@@ -372,6 +407,7 @@ def parse_stepfun(raw):
     items = parse_cards(raw, "https://www.stepfun.com", ("/news/",))
     if items:
         return items
+    labels = sorted(("Step 3.5 Flash 开源", "StepAudio 2.5", "Step Image Edit 2", "Step 5 Preview", "StepAudio 3", "Step 3.7 Flash", "Step Edge", "期智研究院", "公司动态", "AI+终端", "语音 开源", "WAIC", "合作"), key=len, reverse=True)
     pattern = re.compile(r"\[(.*?)\]\((https://www\.stepfun\.com/news/[^)]+)\)", re.S)
     for match in pattern.finditer(text):
         body, url = match.groups()
@@ -379,7 +415,11 @@ def parse_stepfun(raw):
         title = clean_text(images[-1]) if images else ""
         date = date_from_text(body)
         if title and date:
-            items.append({"title": title, "url": url, "date": date})
+            item = {"title": title, "url": url, "date": date}
+            category = next((label for label in labels if clean_text(body).endswith(label)), "")
+            if category:
+                item["categories"] = [category]
+            items.append(item)
     return items
 
 
@@ -394,7 +434,10 @@ def parse_minimax_news(raw):
         except (TypeError, KeyError):
             date = ""
         if title and slug and date:
-            items.append({"title": title, "url": f"https://www.minimax.io/news/{slug}", "date": date})
+            item = {"title": title, "url": f"https://www.minimax.io/news/{slug}", "date": date}
+            if entry.get("tags"):
+                item["categories"] = entry["tags"]
+            items.append(item)
     return items
 
 
@@ -407,7 +450,90 @@ def parse_qwen(raw):
         path = entry.get("path", "")
         date = date_text(extra.get("date", ""))
         if title and path and date:
-            items.append({"title": title, "url": f"https://qwen.ai/research/{path}", "date": date})
+            item = {"title": title, "url": f"https://qwen.ai/research/{path}", "date": date}
+            if extra.get("tags"):
+                item["categories"] = extra["tags"]
+            items.append(item)
+    return items
+
+
+def article_key(url):
+    path = urllib.parse.urlsplit(url).path.rstrip("/")
+    return "/".join(part for part in path.split("/") if part not in ("en", "zh-Hans-CN", "zh-hans"))
+
+
+def merge_languages(english_items, chinese_items):
+    english = {article_key(item["url"]): item for item in english_items}
+    output = []
+    for zh in chinese_items:
+        english_item = english.get(article_key(zh["url"]))
+        item = dict(english_item or zh)
+        if english_item:
+            item["title_zh"] = zh["title"]
+            item["url_zh"] = zh["url"]
+            if zh.get("categories"):
+                item["categories_zh"] = zh["categories"]
+        elif zh.get("categories"):
+            item["categories_zh"] = zh["categories"]
+        output.append(item)
+    return output
+
+
+def merge_minimax_news(english_items, chinese_items):
+    remaining = list(chinese_items)
+    output = []
+    for item in english_items:
+        for index, zh in enumerate(remaining):
+            if zh["date"] == item["date"]:
+                item = {**item, "title_zh": zh["title"],
+                        "url_zh": zh["url"].replace("https://www.minimax.io", "https://www.minimax.cn")}
+                if zh.get("categories"):
+                    item["categories_zh"] = zh["categories"]
+                remaining.pop(index)
+                break
+        output.append(item)
+    return output
+
+
+def merge_categories(items, categorized):
+    by_url = {article_key(item["url"]): item["categories"] for item in categorized if item.get("categories")}
+    output = []
+    for item in items:
+        categories = by_url.get(article_key(item["url"]))
+        if categories:
+            item = {**item, "categories": categories}
+        output.append(item)
+    return output
+
+
+def parse_deepmind_categories(raw):
+    text = raw.decode("utf-8", "replace")
+    items = []
+    pattern = re.compile(r"\[\]\((https?://[^)]+)\)\s*###\s+([^\n]+)\s+([A-Z][a-z]+ \d{4})(?:\s+([^\n]+))?", re.S)
+    for match in pattern.finditer(text):
+        if match.group(4):
+            items.append({"url": match.group(1), "categories": [clean_text(match.group(4))]})
+    return items
+
+
+def parse_mistral_categories(raw):
+    text = raw.decode("utf-8", "replace")
+    items = []
+    pattern = re.compile(r"(Company|Solutions|Engineering|Research|Product)\s+##\s+.+?\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{1,2},\s+\d{4}\s+By\s+.*?\]\((https://mistral.ai/news/[^)]+)\)", re.S)
+    for match in pattern.finditer(text):
+        items.append({"url": match.group(2), "categories": [match.group(1)]})
+    return items
+
+
+def parse_google_categories(raw):
+    text = raw.decode("utf-8", "replace")
+    items = []
+    for match in re.finditer(r"(?<!!)\[(.*?)\]\((https://research.google/blog/[^)]+)\)", text, re.S):
+        body = re.sub(r"!\[.*?\]\([^)]+\)", "", match.group(1), flags=re.S)
+        categories = [clean_text(value) for value in re.findall(r"\*\s*([^*·]+?)(?=\s*(?:·|$))", body)]
+        categories = [value for value in categories if value]
+        if categories:
+            items.append({"url": match.group(2), "categories": categories})
     return items
 
 
@@ -459,12 +585,56 @@ def merge_openai(english_items, chinese_items):
     for item in english_items:
         localized = chinese.get(openai_key(item["url"]))
         if localized:
-            categories = localized.get("categories") or item.get("categories")
-            item = {**item, **localized}
-            if categories:
-                item["categories"] = categories
+            item = dict(item)
+            item["title_zh"] = localized["title"]
+            item["url_zh"] = localized["url"]
+            if localized.get("categories"):
+                item["categories_zh"] = localized["categories"]
         items.append(item)
     return items
+
+
+def parse_openai_release(raw):
+    text = raw.decode("utf-8", "replace")
+    items = []
+    pattern = re.compile(r"<!\[CDATA\[(.*?)\]\]>\s*(https://openai\.com/products/release-notes#([A-Z0-9-]+))\s+([A-Z][a-z]{2}, [^<]+?)(?=<!|$)", re.S)
+    category_names = {"APIP": "API", "CHAT": "ChatGPT", "CODE": "Codex"}
+    for match in pattern.finditer(text):
+        title, url, anchor, raw_date = match.groups()
+        parts = anchor.split("-")
+        category = category_names.get(parts[2], "") if len(parts) > 2 else ""
+        item = {"title": clean_text(title.split("<![CDATA[")[-1]), "url": url, "date": date_text(raw_date)}
+        if category:
+            item["categories"] = [category]
+        items.append(item)
+    return items
+
+
+def parse_openai_release_zh(raw):
+    text = raw.decode("utf-8", "replace")
+    items = []
+    pattern = re.compile(r"^(API|ChatGPT|Codex)\s*\n\s*(\d{4})年(\d{1,2})月(\d{1,2})日\s*\n\s*([^\n]+)\s*\n\s*##\s+([^\n]+)", re.M)
+    for match in pattern.finditer(text):
+        category, year, month, day, stage, title = match.groups()
+        items.append({"title_zh": clean_text(title), "date": f"{year}-{int(month):02d}-{int(day):02d}",
+                      "categories_zh": [category], "meta_zh": [stage]})
+    return items
+
+
+def merge_openai_release(items, localized):
+    remaining = list(localized)
+    output = []
+    for item in items:
+        item = dict(item)
+        anchor = item["url"].split("#", 1)[1]
+        for index, zh in enumerate(remaining):
+            if zh["date"] == item["date"] and zh["categories_zh"] == item.get("categories", []):
+                item.update({"title_zh": zh["title_zh"], "categories_zh": zh["categories_zh"],
+                             "meta_zh": zh["meta_zh"], "url_zh": "https://openai.com/zh-Hans-CN/products/release-notes/#" + anchor})
+                remaining.pop(index)
+                break
+        output.append(item)
+    return output
 
 
 def parse_substack(raw):
@@ -576,10 +746,18 @@ def fetch_source(source):
     if source_id == "juejin-ai":
         raw = request(source["url"], {"id_type": 2, "sort_type": 300, "cate_id": "6809637773935378440", "limit": 30, "cursor": "0"})
         items = parse_juejin(raw)
+    elif source_id == "openai-release-notes":
+        raw = request(source["url"])
+        items = parse_openai_release(raw)
+        try:
+            raw = request("https://r.jina.ai/https://openai.com/zh-Hans-CN/products/release-notes/")
+            items = merge_openai_release(items, parse_openai_release_zh(raw))
+        except Exception:
+            pass
     elif source_id == "openai-news":
         items = parse_feed(request(source["url"]), source)
         try:
-            raw = request("https://r.jina.ai/https://openai.com/zh-Hans-CN/news/", extra_headers={"X-No-Cache": "true"})
+            raw = request("https://r.jina.ai/https://openai.com/zh-Hans-CN/news/")
             items = merge_openai(items, parse_openai_zh(raw))
         except Exception:
             pass
@@ -587,34 +765,68 @@ def fetch_source(source):
         try:
             items = parse_feed(request(source["url"]), source)
         except Exception:
-            raw = request("https://r.jina.ai/" + source["url"], extra_headers={"X-No-Cache": "true"})
+            raw = request("https://r.jina.ai/" + source["url"])
             items = parse_jina_feed(raw)
+        try:
+            raw = request("https://r.jina.ai/https://deepmind.google/blog/")
+            items = merge_categories(items, parse_deepmind_categories(raw))
+        except Exception:
+            pass
     else:
         formats = {"deepseek-news": "html", "stepfun-news": "markdown"}
-        extra_headers = {"X-No-Cache": "true"} if source["url"].startswith("https://r.jina.ai/") else {}
+        extra_headers = {}
         if source_id in formats:
             extra_headers["X-Return-Format"] = formats[source_id]
         raw = request(source["url"], extra_headers=extra_headers)
         if source_id == "deepseek-news":
-            items = parse_deepseek(raw)
+            chinese_items = parse_deepseek(raw)
+            english_raw = request("https://r.jina.ai/https://www.deepseek.com/en/news/",
+                                  extra_headers={"X-Return-Format": "html"})
+            items = merge_languages(parse_deepseek(english_raw), chinese_items)
         elif source_id == "qwen-research":
-            items = parse_qwen(raw)
+            chinese_items = parse_qwen(raw)
+            english_raw = request(source["url"].replace("language=zh-CN", "language=en-US"))
+            items = merge_languages(parse_qwen(english_raw), chinese_items)
         elif source_id == "glm-release-notes":
             items = parse_zai(raw)
         elif source_id == "kimi-blog":
-            items = parse_kimi(raw)
+            english_items = parse_kimi(raw)
+            chinese_raw = request("https://www.kimi.ai/zh-hans/blog/")
+            items = merge_languages(english_items, parse_kimi(chinese_raw))
         elif source_id == "minimax-blog":
-            items = parse_cards(raw, "https://www.minimax.io", ("/blog/",))
+            english_items = parse_cards(raw, "https://www.minimax.io", ("/blog/",), capture_categories=True)
+            chinese_raw = request("https://www.minimax.cn/blog")
+            chinese_items = parse_cards(chinese_raw, "https://www.minimax.cn", ("/blog/",), capture_categories=True)
+            items = merge_languages(english_items, chinese_items)
         elif source_id == "minimax-news":
-            items = parse_minimax_news(raw)
+            english_items = parse_minimax_news(raw)
+            chinese_raw = request("https://www.minimax.io/api/news?page=1&locale=zh")
+            items = merge_minimax_news(english_items, parse_minimax_news(chinese_raw))
         elif source_id == "stepfun-news":
             items = parse_stepfun(raw)
         elif source_id.startswith("anthropic-"):
             items = parse_anthropic(raw)
+            if source_id == "anthropic-engineering":
+                for item in items:
+                    item.setdefault("categories", ["Engineering"])
         elif source_id == "github-trending":
             items = parse_trending(raw)
         elif source_id == "import-ai":
             items = parse_substack(raw)
+        elif source_id == "google-research":
+            items = parse_feed(raw, source)
+            try:
+                extra = request("https://r.jina.ai/https://research.google/blog/")
+                items = merge_categories(items, parse_google_categories(extra))
+            except Exception:
+                pass
+        elif source_id == "mistral-news":
+            items = parse_feed(raw, source)
+            try:
+                extra = request("https://r.jina.ai/https://mistral.ai/news/")
+                items = merge_categories(items, parse_mistral_categories(extra))
+            except Exception:
+                pass
         elif source["type"] in ("rss", "atom", "wechat"):
             items = parse_feed(raw, source)
         else:

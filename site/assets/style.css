@@ -39,6 +39,10 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-
 .brand-mark { display: grid; place-items: center; width: 29px; height: 29px; border-radius: 8px; background: var(--accent); color: #fff; font-size: 12px; letter-spacing: -.03em; }
 .repo-link { color: var(--muted); text-decoration: none; font-size: 13px; }
 .repo-link:hover { color: var(--accent); }
+.top-actions { display: flex; align-items: center; gap: 18px; }
+.lang-switch { display: inline-flex; padding: 2px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.lang-switch button { padding: 4px 9px; border: 0; border-radius: 5px; background: transparent; color: var(--muted); font: inherit; font-size: 11px; cursor: pointer; }
+.lang-switch button[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent); }
 
 main { max-width: 1104px; margin: 0 auto; padding: 0 28px; }
 .intro { padding: 64px 0 34px; }
@@ -86,6 +90,7 @@ h1 { margin: 0; max-width: 720px; font-size: clamp(32px, 5vw, 48px); line-height
 .source-header h3 { margin: 0; min-width: 0; font-size: 13px; font-weight: 650; letter-spacing: -.01em; }
 .source-home { color: var(--faint); font-size: 10px; text-decoration: none; white-space: nowrap; }
 .source-home:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.source-filter { width: 100%; margin-top: 8px; padding: 7px 10px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); color: var(--muted); font: inherit; font-size: 11px; }
 .source-count { margin-left: auto; color: var(--faint); font-size: 10px; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .source-status { color: var(--warning); font-size: 10px; white-space: nowrap; }
 .items { list-style: none; margin: 0; padding: 5px 17px 8px; }
@@ -99,6 +104,7 @@ h1 { margin: 0; max-width: 720px; font-size: clamp(32px, 5vw, 48px); line-height
 .item-description { display: -webkit-box; margin: 5px 58px 0 0; overflow: hidden; color: var(--muted); font-size: 11px; line-height: 1.55; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .item-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; color: var(--faint); font-size: 10px; }
 .item-category { padding: 1px 5px; border-radius: 4px; background: var(--accent-soft); color: var(--accent); }
+.item-translation { padding: 1px 4px; border: 1px solid var(--line); border-radius: 4px; color: var(--faint); font-size: 9px; }
 .empty { margin: 0; padding: 22px 0; color: var(--faint); font-size: 12px; text-align: center; }
 .source-expand { width: 100%; padding: 10px 17px; border: 0; border-top: 1px solid var(--line); background: transparent; color: var(--muted); font: inherit; font-size: 11px; cursor: pointer; text-align: center; }
 .source-expand:hover { background: var(--accent-soft); color: var(--accent); }
@@ -115,6 +121,9 @@ footer a:hover { color: var(--accent); }
 
 @media (max-width: 700px) {
   .topbar { height: 60px; padding: 0 18px; }
+  .top-actions { gap: 9px; }
+  .repo-link { font-size: 12px; }
+  .lang-switch button { padding: 4px 7px; font-size: 10px; }
   main { padding: 0 18px; }
   .intro { padding: 43px 0 27px; }
   h1 { font-size: 34px; }
