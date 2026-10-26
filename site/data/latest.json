@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-10-27T01:43:06+08:00",
+  "generated_at": "2026-10-27T01:43:57+08:00",
   "retention_days": 30,
-  "fetch_days": 30,
+  "fetch_days": 1,
   "tiers": [
     {
       "id": "T1",
@@ -189,7 +189,7 @@
           "url": "https://openai.com/index/fanatics-streamline-fan-experience",
           "date": "2026-10-26",
           "title_zh": "Fanatics与OpenAI如何简化球迷体验",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)",
@@ -800,14 +800,14 @@
             "ChatGPT"
           ],
           "title_zh": "在 Enterprise 工作空间内分享个人资料",
+          "title_zh_source": "official",
           "url_zh": "https://openai.com/zh-Hans-CN/products/release-notes/#CL-20261022-CHAT-551",
           "categories_zh": [
             "ChatGPT"
           ],
           "meta_zh": [
             "通用可用性"
-          ],
-          "title_zh_source": "official"
+          ]
         },
         {
           "title": "Decisions API with GPT-6 Luna is now generally available",
@@ -817,14 +817,14 @@
             "API"
           ],
           "title_zh": "支持 GPT-6 Luna 的 Decisions API 现已正式推出",
+          "title_zh_source": "official",
           "url_zh": "https://openai.com/zh-Hans-CN/products/release-notes/#CL-20261022-APIP-550",
           "categories_zh": [
             "API"
           ],
           "meta_zh": [
             "通用可用性"
-          ],
-          "title_zh_source": "official"
+          ]
         },
         {
           "title": "Service tier controls for API projects",
@@ -834,14 +834,14 @@
             "API"
           ],
           "title_zh": "API 项目的服务层级控制",
+          "title_zh_source": "official",
           "url_zh": "https://openai.com/zh-Hans-CN/products/release-notes/#CL-20261021-APIP-548",
           "categories_zh": [
             "API"
           ],
           "meta_zh": [
             "通用可用性"
-          ],
-          "title_zh_source": "official"
+          ]
         },
         {
           "title": "Manage Business workspace settings in Admin Console",
@@ -851,14 +851,14 @@
             "ChatGPT"
           ],
           "title_zh": "在管理控制台中管理 Business 工作空间设置",
+          "title_zh_source": "official",
           "url_zh": "https://openai.com/zh-Hans-CN/products/release-notes/#CL-20261021-CHAT-549",
           "categories_zh": [
             "ChatGPT"
           ],
           "meta_zh": [
             "通用可用性"
-          ],
-          "title_zh_source": "official"
+          ]
         },
         {
           "title": "Introducing locked chats",
@@ -868,7 +868,7 @@
             "ChatGPT"
           ],
           "title_zh": "推出锁定聊天",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "12-hour prompt caching in the API",
@@ -878,14 +878,14 @@
             "API"
           ],
           "title_zh": "API 中的 12 小时提示词缓存",
+          "title_zh_source": "official",
           "url_zh": "https://openai.com/zh-Hans-CN/products/release-notes/#CL-20261020-APIP-546",
           "categories_zh": [
             "API"
           ],
           "meta_zh": [
             "通用可用性"
-          ],
-          "title_zh_source": "official"
+          ]
         },
         {
           "title": "Updates to GPT-6 Pro in ChatGPT",
@@ -895,7 +895,7 @@
             "ChatGPT"
           ],
           "title_zh": "ChatGPT 中 GPT-6 Pro 的更新",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Updated External access controls in Admin Console",
@@ -905,7 +905,7 @@
             "ChatGPT"
           ],
           "title_zh": "管理控制台中外部访问控制的更新",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Prompt-to-voice and nine new GPT-Live voices",
@@ -915,7 +915,7 @@
             "API"
           ],
           "title_zh": "提示词转语音及九种全新 GPT-Live 语音",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Create and collaborate on slides in ChatGPT",
@@ -925,7 +925,7 @@
             "ChatGPT"
           ],
           "title_zh": "在 ChatGPT 中创建并协作制作幻灯片",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Artifact SDK, skills, and Ultrafast mode in the Agents API",
@@ -935,7 +935,7 @@
             "API"
           ],
           "title_zh": "Agents API 中的 Artifact SDK、技能与 Ultrafast 模式",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Administrator-managed sync retirement and app content controls",
@@ -945,7 +945,7 @@
             "ChatGPT"
           ],
           "title_zh": "管理员管理的同步功能退役与应用内容控制",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Site limits for Plus and Pro",
@@ -955,7 +955,7 @@
             "ChatGPT"
           ],
           "title_zh": "Plus 和 Pro 的站点限制",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Native Decisions integration in GPT-Live",
@@ -965,7 +965,7 @@
             "API"
           ],
           "title_zh": "GPT-Live 中的原生 Decisions 集成",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Manage multiple plugins at once",
@@ -975,7 +975,7 @@
             "ChatGPT"
           ],
           "title_zh": "同时管理多个插件",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "GPT-Live-1.1 and new voices in ChatGPT",
@@ -985,7 +985,7 @@
             "ChatGPT"
           ],
           "title_zh": "GPT-Live-1.1 与 ChatGPT 中的新语音",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "ChatGPT Sites updates for Enterprise",
@@ -995,7 +995,7 @@
             "ChatGPT"
           ],
           "title_zh": "面向 Enterprise 的 ChatGPT Sites 更新",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Applications for the Rosalind Academic Plan",
@@ -1005,7 +1005,7 @@
             "ChatGPT"
           ],
           "title_zh": "Rosalind Academic Plan 申请",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Composer predictions in Codex",
@@ -1015,7 +1015,7 @@
             "ChatGPT"
           ],
           "title_zh": "Codex 中的 Composer 预测",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Ultrafast mode for GPT-6.1 Sol",
@@ -1025,7 +1025,7 @@
             "API"
           ],
           "title_zh": "GPT-6.1 Sol 的 Ultrafast 模式",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Manage plugin access by role",
@@ -1035,7 +1035,7 @@
             "ChatGPT"
           ],
           "title_zh": "按角色管理插件访问权限",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Faster steering in Codex",
@@ -1045,7 +1045,7 @@
             "ChatGPT"
           ],
           "title_zh": "Codex 中更快的引导",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Codex app updates: message steering, changes navigation, and approval recovery",
@@ -1055,7 +1055,7 @@
             "Codex"
           ],
           "title_zh": "Codex 应用更新：消息引导、变更导航与审批恢复",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Updated chat-latest model snapshot",
@@ -1065,7 +1065,7 @@
             "API"
           ],
           "title_zh": "更新后的 chat-latest 模型快照",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "GPT-6 and Intelligent UI in ChatGPT",
@@ -1075,7 +1075,7 @@
             "ChatGPT"
           ],
           "title_zh": "ChatGPT 中的 GPT-6 与 Intelligent UI",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Codex app updates: Windows sandbox, WSL worktrees, and sidebar fixes",
@@ -1085,7 +1085,7 @@
             "Codex"
           ],
           "title_zh": "Codex 应用更新：Windows 沙盒、WSL 工作树与侧边栏修复",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "ChatGPT for iOS updates: page previews, plugin access, and task reliability",
@@ -1095,7 +1095,7 @@
             "Codex"
           ],
           "title_zh": "ChatGPT for iOS 更新：页面预览、插件访问与任务可靠性",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Simplified API usage tiers",
@@ -1105,7 +1105,7 @@
             "API"
           ],
           "title_zh": "简化的 API 使用层级",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Decisions API with GPT-6 Luna",
@@ -1115,7 +1115,7 @@
             "API"
           ],
           "title_zh": "基于 GPT-6 Luna 的 Decisions API",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Audio uploads in ChatGPT",
@@ -1125,7 +1125,7 @@
             "ChatGPT"
           ],
           "title_zh": "ChatGPT 中的音频上传",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Self-serve HIPAA compliance support for API organizations",
@@ -1135,7 +1135,7 @@
             "API"
           ],
           "title_zh": "面向 API 组织的自助式 HIPAA 合规支持",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Finances expands to Free and Go users",
@@ -1145,7 +1145,7 @@
             "ChatGPT"
           ],
           "title_zh": "Finances 扩展至 Free 和 Go 用户",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "ChatGPT for iOS updates: task widgets, composer recovery, and reliability",
@@ -1155,7 +1155,7 @@
             "Codex"
           ],
           "title_zh": "ChatGPT for iOS 更新：任务小组件、编辑器恢复与可靠性",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Scan notes and documents more easily with ChatGPT camera",
@@ -1165,7 +1165,7 @@
             "ChatGPT"
           ],
           "title_zh": "使用 ChatGPT 相机更轻松地扫描笔记和文档",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "New ways to shop in ChatGPT",
@@ -1175,7 +1175,7 @@
             "ChatGPT"
           ],
           "title_zh": "ChatGPT 中的全新购物方式",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Codex app updates: bulk project moves and task recovery improvements",
@@ -1185,7 +1185,7 @@
             "Codex"
           ],
           "title_zh": "Codex 应用更新：批量项目移动与任务恢复改进",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Work with interactive plugin extensions",
@@ -1195,7 +1195,7 @@
             "ChatGPT"
           ],
           "title_zh": "使用交互式插件扩展",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Work with @ChatGPT in Slack and Microsoft Teams",
@@ -1205,7 +1205,7 @@
             "ChatGPT"
           ],
           "title_zh": "在 Slack 和 Microsoft Teams 中使用 @ChatGPT",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Use your ChatGPT allowance in participating apps",
@@ -1215,7 +1215,7 @@
             "ChatGPT"
           ],
           "title_zh": "在参与应用中使用你的 ChatGPT 额度",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Ultrafast mode for GPT-6 Astra in the Responses API",
@@ -1225,7 +1225,7 @@
             "API"
           ],
           "title_zh": "Responses API 中 GPT-6 Astra 的超快模式",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Team tasks in ChatGPT",
@@ -1235,7 +1235,7 @@
             "ChatGPT"
           ],
           "title_zh": "ChatGPT 中的团队任务",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Start automations from connected-app events",
@@ -1245,7 +1245,7 @@
             "ChatGPT"
           ],
           "title_zh": "从已连接应用事件启动自动化",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Sign in to other products with ChatGPT",
@@ -1255,7 +1255,7 @@
             "ChatGPT"
           ],
           "title_zh": "使用 ChatGPT 登录其他产品",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Share your profile and showcase your Sites",
@@ -1265,7 +1265,7 @@
             "ChatGPT"
           ],
           "title_zh": "分享你的个人资料并展示你的 Sites",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Scan repositories with Codex Security Cloud",
@@ -1275,7 +1275,7 @@
             "ChatGPT"
           ],
           "title_zh": "使用 Codex Security Cloud 扫描仓库",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Review pull requests with Codex",
@@ -1285,7 +1285,7 @@
             "ChatGPT"
           ],
           "title_zh": "使用 Codex 审查拉取请求",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Pro 500 with Astra Ultrafast",
@@ -1295,7 +1295,7 @@
             "ChatGPT"
           ],
           "title_zh": "Pro 500 搭配 Astra Ultrafast",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Pro 200 subscriptions",
@@ -1305,7 +1305,7 @@
             "ChatGPT"
           ],
           "title_zh": "Pro 200 订阅",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "OpenAI Marketplace for enterprise customers",
@@ -1315,7 +1315,7 @@
             "ChatGPT"
           ],
           "title_zh": "面向企业客户的 OpenAI Marketplace",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Meetings plugin",
@@ -1325,7 +1325,7 @@
             "ChatGPT"
           ],
           "title_zh": "会议插件",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Meet your dot",
@@ -1335,7 +1335,7 @@
             "ChatGPT"
           ],
           "title_zh": "认识你的 dot",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "GPT-6.1 Sol in Codex, ChatGPT Work, and the API",
@@ -1345,7 +1345,7 @@
             "API"
           ],
           "title_zh": "GPT-6.1 Sol 登陆 Codex、ChatGPT Work 和 API",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Create and collaborate on Pages and organize work in Space",
@@ -1355,7 +1355,7 @@
             "ChatGPT"
           ],
           "title_zh": "在 Pages 中创建与协作，在 Space 中组织工作",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Connected apps, editing, and schedules in Sites",
@@ -1365,7 +1365,7 @@
             "ChatGPT"
           ],
           "title_zh": "Sites 中的关联应用、编辑和日程安排",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Connect approved tools for team work",
@@ -1375,7 +1375,7 @@
             "ChatGPT"
           ],
           "title_zh": "为团队协作连接已批准的工具",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Computer use in the Agents API",
@@ -1385,7 +1385,7 @@
             "API"
           ],
           "title_zh": "Agents API 中的计算机使用",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Codex Cloud",
@@ -1395,7 +1395,7 @@
             "ChatGPT"
           ],
           "title_zh": "Codex Cloud",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Explore your health data with personalized summaries",
@@ -1405,10 +1405,10 @@
             "ChatGPT"
           ],
           "title_zh": "通过个性化摘要探索你的健康数据",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         }
       ],
-      "fresh_items": 58
+      "fresh_items": 0
     },
     {
       "id": "anthropic-news",
@@ -3271,6 +3271,122 @@
       "status": "ok",
       "items": [
         {
+          "title": "刚刚，Anthropic公开335页招股书：史上最大IPO，史上最亏AI公司",
+          "url": "https://www.qbitai.com/2026/10/505551.html",
+          "date": "2026-10-27",
+          "categories": [
+            "资讯",
+            "Claude"
+          ],
+          "title_zh": "刚刚，Anthropic公开335页招股书：史上最大IPO，史上最亏AI公司",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "长安汽车赵非：汽车将成为端侧物理AI规模最大的应用载体 | 2026世界智能网联汽车大会",
+          "url": "https://www.qbitai.com/2026/10/505436.html",
+          "date": "2026-10-26",
+          "categories": [
+            "资讯",
+            "中国长安汽车"
+          ],
+          "title_zh": "长安汽车赵非：汽车将成为端侧物理AI规模最大的应用载体 | 2026世界智能网联汽车大会",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "趋境科技完成 B 轮融资，半年实现超十倍速增长，加速高品质 AI Token 规模化交付",
+          "url": "https://www.qbitai.com/2026/10/505429.html",
+          "date": "2026-10-26",
+          "categories": [
+            "资讯",
+            "AI Token",
+            "趋境科技"
+          ],
+          "title_zh": "趋境科技完成 B 轮融资，半年实现超十倍速增长，加速高品质 AI Token 规模化交付",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "从“言传身教”到“触类旁通”：AI既需要“名师指引”，也需要“自我修行”",
+          "url": "https://www.qbitai.com/2026/10/505443.html",
+          "date": "2026-10-26",
+          "categories": [
+            "资讯",
+            "MiniMax"
+          ],
+          "title_zh": "从“言传身教”到“触类旁通”：AI既需要“名师指引”，也需要“自我修行”",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "中国近50%的新云生意，竟被这家公司包揽！",
+          "url": "https://www.qbitai.com/2026/10/505454.html",
+          "date": "2026-10-26",
+          "categories": [
+            "资讯",
+            "Neocloud",
+            "Token工厂",
+            "商汤科技"
+          ],
+          "title_zh": "中国近50%的新云生意，竟被这家公司包揽！",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "OpenAI开始断网训练最强模型：“安全起见”",
+          "url": "https://www.qbitai.com/2026/10/505529.html",
+          "date": "2026-10-26",
+          "categories": [
+            "资讯",
+            "OpenAI",
+            "断网"
+          ],
+          "title_zh": "OpenAI开始断网训练最强模型：“安全起见”",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "NeoLab第一个商业模式：转售GPU",
+          "url": "https://www.qbitai.com/2026/10/505478.html",
+          "date": "2026-10-26",
+          "categories": [
+            "资讯",
+            "AI Lab",
+            "算力"
+          ],
+          "title_zh": "NeoLab第一个商业模式：转售GPU",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "KV Cache砍掉99%，单卡吞吐飙6倍，港科CMU联手岩山科技开源新模型",
+          "url": "https://www.qbitai.com/2026/10/505407.html",
+          "date": "2026-10-26",
+          "categories": [
+            "资讯",
+            "首页轮播",
+            "KV Cache优化"
+          ],
+          "title_zh": "KV Cache砍掉99%，单卡吞吐飙6倍，港科CMU联手岩山科技开源新模型",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "A社联创演讲：AI奇点已来",
+          "url": "https://www.qbitai.com/2026/10/505521.html",
+          "date": "2026-10-26",
+          "categories": [
+            "资讯",
+            "AI奇点"
+          ],
+          "title_zh": "A社联创演讲：AI奇点已来",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "AI时代，一个人能有多大能量？天禧AI × 观猹大会现场实测个人AI跨端协同新体验",
+          "url": "https://www.qbitai.com/2026/10/505539.html",
+          "date": "2026-10-26",
+          "categories": [
+            "资讯",
+            "天禧AI"
+          ],
+          "title_zh": "AI时代，一个人能有多大能量？天禧AI × 观猹大会现场实测个人AI跨端协同新体验",
+          "title_zh_source": "official"
+        },
+        {
           "title": "高德发布首个基于开放世界行为的全身基座模型λ0，推动机器人从“局部学习”迈向“全身动作对齐”",
           "url": "https://www.qbitai.com/2026/10/504905.html",
           "date": "2026-10-23",
@@ -3383,7 +3499,7 @@
           "title_zh_source": "official"
         }
       ],
-      "fresh_items": 0
+      "fresh_items": 10
     },
     {
       "id": "jiqizhixin",
@@ -4218,7 +4334,7 @@
             "TC"
           ],
           "title_zh": "SpaceX 与 Apollo 敲定 400 亿美元 GPU 融资协议",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Anthropic’s IPO filing reveals its strategy for keeping enterprise customers hooked",
@@ -4231,7 +4347,7 @@
             "Anthropic"
           ],
           "title_zh": "Anthropic 的 IPO 文件揭示其留住企业客户的策略",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Grok releases the first seven minutes of its AI-generated ‘Odyssey’",
@@ -4244,7 +4360,7 @@
             "Grok"
           ],
           "title_zh": "Grok 发布其 AI 生成的《Odyssey》前七分钟",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Anthropic officially files for its public debut",
@@ -4257,7 +4373,7 @@
             "existential risk"
           ],
           "title_zh": "Anthropic 正式提交上市申请",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "AI delivers ‘zero financial payoff’ to most companies, Apollo economist says",
@@ -4268,7 +4384,7 @@
             "Apollo Global Management"
           ],
           "title_zh": "Apollo 经济学家称 AI 对多数公司带来“零财务回报”",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "The hottest AI wearables and gadgets you should know about",
@@ -4482,7 +4598,7 @@
             "Entertainment"
           ],
           "title_zh": "The RealReal 不让 AI 代理独占设计师服装",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Microsoft offers buyouts to 60,000 employees",
@@ -4495,7 +4611,7 @@
             "News"
           ],
           "title_zh": "微软向 6 万名员工提供买断方案",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Kevin Roose is AGI-pilled. Why aren’t you?",
@@ -4508,7 +4624,7 @@
             "Google"
           ],
           "title_zh": "Kevin Roose 已对 AGI 深信不疑，你为何不是？",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Five weird details from Anthropic’s IPO filing",
@@ -4520,7 +4636,7 @@
             "Report"
           ],
           "title_zh": "Anthropic IPO 文件中的五个奇怪细节",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Anthropic’s IPO filing lays out a plan to ‘revolutionize every area of human endeavor’ with AI",
@@ -4533,7 +4649,7 @@
             "News"
           ],
           "title_zh": "Anthropic 的 IPO 文件提出用 AI“彻底变革人类活动的每个领域”的计划",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Can AI help solve the COBOL code crisis?",
@@ -4546,7 +4662,7 @@
             "Report"
           ],
           "title_zh": "AI 能帮助解决 COBOL 代码危机吗？",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "r/opensource just banned AI, non-English speakers, and more",
@@ -4635,7 +4751,7 @@
             "ai theft"
           ],
           "title_zh": "公路窃贼伪造 GPS 信号，窃取价值数百万美元的数据中心货物",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Tesla gave up the EV crown. Now it wants to win the autonomy race.",
@@ -4648,7 +4764,7 @@
             "Elon Musk"
           ],
           "title_zh": "特斯拉放弃了电动汽车王冠，现在想赢得自动驾驶竞赛",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Updated Google privacy policy says your Gmail might be used for advertising",
@@ -4920,7 +5036,7 @@
             "App"
           ],
           "title_zh": "对AI安全灾难的关注忽视了日常危害",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "The Foundations of Scalable AI",
@@ -5047,7 +5163,7 @@
             "Open Source"
           ],
           "title_zh": "Reddit 的 r/opensource 封禁所有 AI 相关项目，引发强烈反弹并催生竞争性 subreddit",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Wall Street's fastest traders are building data centers and backing chip startups to stay ahead in AI",
@@ -5060,7 +5176,7 @@
             "Finance"
           ],
           "title_zh": "华尔街最快的交易员正在建设数据中心并投资芯片初创公司，以在 AI 领域保持领先",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Toyota is betting $6.4 billion a year on humanoid robots and factory automation",
@@ -5073,7 +5189,7 @@
             "Robotics"
           ],
           "title_zh": "丰田每年投入 64 亿美元押注人形机器人和工厂自动化",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Meta plans up to $95 billion in stock sales to fund its AI buildout",
@@ -5086,7 +5202,7 @@
             "Meta"
           ],
           "title_zh": "Meta 计划通过最高 950 亿美元的股票发行来为其 AI 建设提供资金",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "OpenMobile-2 proves open-source smartphone agents can rival proprietary models",
@@ -6372,14 +6488,14 @@
           "url": "https://entire.com/blog/the-git-forge-for-agent-human-collaboration",
           "date": "2026-10-27",
           "title_zh": "面向代理与人类协作的 Git Forge",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Concerning behavior from a popular open-weight AI model",
           "url": "https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model",
           "date": "2026-10-27",
           "title_zh": "一款热门开放权重 AI 模型出现令人担忧的行为",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Why I Am a Programmer",
@@ -6393,126 +6509,126 @@
           "url": "https://brennenputh.me/blog/printable-websites/",
           "date": "2026-10-26",
           "title_zh": "网站应当可打印",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Switzerland. Block by block. At 1:1 scale",
           "url": "https://blocks.manifold3d.ch/",
           "date": "2026-10-26",
           "title_zh": "瑞士。逐块呈现。1:1 比例",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Stalwart v1.0: The Fastest Mail Server on the Planet",
           "url": "https://stalw.art/blog/stalwart-1-0/",
           "date": "2026-10-26",
           "title_zh": "Stalwart v1.0：全球最快的邮件服务器",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Show HN: TitleArt – Make text like it's 1997",
           "url": "https://titleart.dvy.io/",
           "date": "2026-10-26",
           "title_zh": "Show HN：TitleArt——让文字像 1997 年那样",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Sebastian Raschka's from-scratch video course on building reasoning models",
           "url": "https://magazine.sebastianraschka.com/p/building-reasoning-models",
           "date": "2026-10-26",
           "title_zh": "Sebastian Raschka 的从零构建推理模型视频课程",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "SIMD-accelerated computer vision on a $2 microcontroller",
           "url": "https://shraiwi.com/blog/simd-fast-esp32s3/",
           "date": "2026-10-26",
           "title_zh": "在 2 美元微控制器上实现 SIMD 加速的计算机视觉",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Pharo 14",
           "url": "https://pharo.org/news/2026-10-26-Pharo14Release.html",
           "date": "2026-10-26",
           "title_zh": "Pharo 14",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Partyline: A group voice application for Reticulum, built on LXST",
           "url": "https://github.com/RFnexus/partyline",
           "date": "2026-10-26",
           "title_zh": "Partyline：基于 LXST 构建的 Reticulum 群组语音应用",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "PaperPilot – Zero-Cloud, Pure-Rust PDF Engine with WASM and MCP",
           "url": "https://github.com/KrushnaVardhanReddy/PaperPilot",
           "date": "2026-10-26",
           "title_zh": "PaperPilot——零云端、纯 Rust 的 PDF 引擎，支持 WASM 和 MCP",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "OLED iPad Mini",
           "url": "https://www.apple.com/shop/buy-ipad/ipad-mini",
           "date": "2026-10-26",
           "title_zh": "OLED iPad Mini",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Microsoft offers mass buyouts for roughly a quarter of its workforce",
           "url": "https://www.seattletimes.com/business/microsoft/microsoft-offers-mass-buyouts-for-roughly-a-quarter-of-its-workforce/",
           "date": "2026-10-26",
           "title_zh": "微软向约四分之一员工提供大规模买断方案",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Fixing Tool-Call Accuracy in vLLM",
           "url": "https://www.ubicloud.com/blog/fixing-tool-call-accuracy-in-vllm",
           "date": "2026-10-26",
           "title_zh": "修复 vLLM 中的工具调用准确性问题",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Dolly Parton's Imagination Library",
           "url": "https://imaginationlibrary.com/",
           "date": "2026-10-26",
           "title_zh": "Dolly Parton 的 Imagination Library",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "CSS-Tricks has a new owner",
           "url": "https://css-tricks.com/css-tricks-has-a-new-owner/",
           "date": "2026-10-26",
           "title_zh": "CSS-Tricks 有了新东家",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Brown student maps the hidden global labor powering AI",
           "url": "https://www.brown.edu/news/2026-10-26/ai-data-workers",
           "date": "2026-10-26",
           "title_zh": "布朗大学学生绘制出支撑 AI 的隐形全球劳动力地图",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Behind the scenes at the NeXT Computer office",
           "url": "https://exhibits.stanford.edu/menuez/browse/next-computer-inc?per_page=96&sort=pub_year_isi+asc%2C+title_sort+asc&view=masonry",
           "date": "2026-10-26",
           "title_zh": "NeXT Computer 办公室的幕后故事",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Attention Is Not What You Need (2025)",
           "url": "https://arxiv.org/abs/2512.19428",
           "date": "2026-10-26",
           "title_zh": "注意力并非你所需（2025）",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Anthropic S-1",
           "url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
           "date": "2026-10-26",
           "title_zh": "Anthropic S-1",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Show HN: A Truly Modular Keyboard",
@@ -7115,7 +7231,7 @@
           "url": "https://importai.substack.com/p/import-ai-478-math-for-alignment",
           "date": "2026-10-26",
           "title_zh": "Import AI 478：对齐的数学；ProgramBench；Mirendil 展示 RSI 意味着什么",
-          "title_zh_source": "official"
+          "title_zh_source": "deepseek"
         },
         {
           "title": "Import AI 477: In which I tell the IMF the Singularity has begun",
