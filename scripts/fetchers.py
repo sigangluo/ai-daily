@@ -749,6 +749,9 @@ def fetch_source(source):
     elif source_id == "openai-release-notes":
         raw = request(source["url"])
         items = parse_openai_release(raw)
+        if not items:
+            raw = request(source["url"], extra_headers={"X-No-Cache": "true"})
+            items = parse_openai_release(raw)
         try:
             raw = request("https://r.jina.ai/https://openai.com/zh-Hans-CN/products/release-notes/")
             items = merge_openai_release(items, parse_openai_release_zh(raw))
