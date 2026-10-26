@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T21:22:43+08:00",
+  "generated_at": "2026-10-26T21:23:15+08:00",
   "tiers": [
     {
       "id": "T1",
@@ -184,7 +184,8 @@
       "tier": "T1",
       "region": "intl",
       "url": "https://deepmind.google/blog/rss.xml",
-      "status": "ok",
+      "status": "error",
+      "error": "not well-formed (invalid token): line 1, column 0",
       "items": [
         {
           "title": "Beyond tree cover: mapping the world’s forest types",
@@ -226,7 +227,8 @@
           "url": "https://deepmind.google/blog/gemini-4-argon-our-next-era-of-frontier-intelligence/",
           "date": "2026-10-01"
         }
-      ]
+      ],
+      "stale": true
     },
     {
       "id": "google-research",
@@ -1435,8 +1437,8 @@
           "date": "2026-10-26"
         },
         {
-          "title": "Removing Next.js Got My Blog to 100 on Every Lighthouse Category",
-          "url": "https://korindiehacker.bloffy.blog/en/removing-nextjs-got-my-blog-to-100-on-every-lighthouse-category",
+          "title": "Peter Thiel, the tech oligarch who believes in the Antichrist",
+          "url": "https://english.elpais.com/technology/2026-10-25/peter-thiel-the-tech-oligarch-who-believes-in-the-antichrist.html",
           "date": "2026-10-26"
         }
       ]
