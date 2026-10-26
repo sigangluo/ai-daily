@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T23:53:40+08:00",
+  "generated_at": "2026-10-27T00:03:27+08:00",
   "retention_days": 30,
   "fetch_days": 1,
   "tiers": [
@@ -445,11 +445,6 @@
           "title": "Are you a Codex Original?",
           "url": "https://openai.com/form/codex-originals",
           "date": "2026-09-28"
-        },
-        {
-          "title": "Proaction boosts sales 60% and saves 75+ hours with Codex",
-          "url": "https://openai.com/index/proaction",
-          "date": "2026-09-26"
         }
       ],
       "fresh_items": 1
@@ -578,7 +573,8 @@
       "tier": "T1",
       "region": "intl",
       "url": "https://deepmind.google/blog/rss.xml",
-      "status": "ok",
+      "status": "error",
+      "error": "not well-formed (invalid token): line 1, column 0",
       "items": [
         {
           "title": "Beyond tree cover: mapping the world’s forest types",
@@ -621,7 +617,7 @@
           "date": "2026-10-01"
         }
       ],
-      "fresh_items": 0
+      "stale": true
     },
     {
       "id": "google-research",
@@ -903,11 +899,6 @@
           "title": "AI is changing developer work. Here are three skills to strengthen.",
           "url": "https://github.blog/ai-and-ml/ai-is-rewriting-the-developer-career-ladder-heres-how-to-stand-out/",
           "date": "2026-10-02"
-        },
-        {
-          "title": "GitHub Copilot app for Beginners: How to build custom workflows with canvases",
-          "url": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-build-custom-workflows-with-canvases/",
-          "date": "2026-09-26"
         }
       ],
       "fresh_items": 0
@@ -1233,7 +1224,7 @@
           "date": "2026-10-20"
         }
       ],
-      "fresh_items": 6
+      "fresh_items": 3
     },
     {
       "id": "36kr",
@@ -1394,7 +1385,7 @@
           "date": "2026-10-25"
         }
       ],
-      "fresh_items": 30
+      "fresh_items": 28
     },
     {
       "id": "infoq-cn",
@@ -1505,7 +1496,7 @@
           "date": "2026-10-24"
         }
       ],
-      "fresh_items": 14
+      "fresh_items": 11
     },
     {
       "id": "mp-xinzhiyuan",
@@ -1616,7 +1607,7 @@
           "date": "2026-10-20"
         }
       ],
-      "fresh_items": 6
+      "fresh_items": 3
     },
     {
       "id": "mp-xixiaoyao",
@@ -1712,7 +1703,7 @@
           "date": "2026-09-29"
         }
       ],
-      "fresh_items": 2
+      "fresh_items": 1
     },
     {
       "id": "techcrunch-ai",
@@ -1823,7 +1814,7 @@
           "date": "2026-10-23"
         }
       ],
-      "fresh_items": 6
+      "fresh_items": 3
     },
     {
       "id": "theverge-ai",
@@ -1833,6 +1824,11 @@
       "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
       "status": "ok",
       "items": [
+        {
+          "title": "Microsoft offers buyouts to 60,000 employees",
+          "url": "https://www.theverge.com/tech/1018666/microsoft-expands-buyouts-60000-employees-eligible",
+          "date": "2026-10-26"
+        },
         {
           "title": "Kevin Roose is AGI-pilled. Why aren’t you?",
           "url": "https://www.theverge.com/podcast/1018264/kevin-roose-the-agi-chronicles-machine-gods-podcast-youtube-openai-anthropic",
@@ -1884,7 +1880,7 @@
           "date": "2026-10-24"
         }
       ],
-      "fresh_items": 6
+      "fresh_items": 4
     },
     {
       "id": "arstechnica-ai",
@@ -2117,7 +2113,7 @@
           "date": "2026-10-24"
         }
       ],
-      "fresh_items": 9
+      "fresh_items": 3
     },
     {
       "id": "hellogithub",
@@ -2394,7 +2390,7 @@
           "date": "2026-10-21"
         }
       ],
-      "fresh_items": 10
+      "fresh_items": 8
     },
     {
       "id": "mp-appinn",
@@ -2505,7 +2501,7 @@
           "date": "2026-10-17"
         }
       ],
-      "fresh_items": 5
+      "fresh_items": 2
     },
     {
       "id": "juejin-ai",
@@ -2977,7 +2973,7 @@
           "date": "2026-10-08"
         }
       ],
-      "fresh_items": 15
+      "fresh_items": 10
     },
     {
       "id": "hackernews",
@@ -3050,6 +3046,11 @@
         {
           "title": "Fixing Tool-Call Accuracy in vLLM",
           "url": "https://www.ubicloud.com/blog/fixing-tool-call-accuracy-in-vllm",
+          "date": "2026-10-26"
+        },
+        {
+          "title": "Everything",
+          "url": "https://github.com/HeyPuter/everything",
           "date": "2026-10-26"
         },
         {
@@ -3376,7 +3377,7 @@
           "date": "2026-10-13"
         }
       ],
-      "fresh_items": 1
+      "fresh_items": 0
     },
     {
       "id": "lilian-weng",
