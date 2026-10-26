@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-10-27T00:32:29+08:00",
+  "generated_at": "2026-10-27T00:34:06+08:00",
   "retention_days": 30,
-  "fetch_days": 30,
+  "fetch_days": 1,
   "tiers": [
     {
       "id": "T1",
@@ -584,7 +584,7 @@
           "date": "2026-09-28"
         }
       ],
-      "fresh_items": 62
+      "fresh_items": 1
     },
     {
       "id": "anthropic-news",
@@ -1868,17 +1868,33 @@
         {
           "title": "Grok releases the first seven minutes of its AI-generated ‘Odyssey’",
           "url": "https://techcrunch.com/2026/10/25/grok-releases-the-first-seven-minutes-of-its-ai-generated-odyssey/",
-          "date": "2026-10-26"
+          "date": "2026-10-26",
+          "categories": [
+            "AI",
+            "Media & Entertainment",
+            "Elon Musk",
+            "SpaceX"
+          ]
         },
         {
           "title": "Anthropic officially files for its public debut",
           "url": "https://techcrunch.com/2026/10/26/anthropic-officially-files-for-its-public-debut/",
-          "date": "2026-10-26"
+          "date": "2026-10-26",
+          "categories": [
+            "AI",
+            "Anthropic",
+            "dario amodei",
+            "existential risk"
+          ]
         },
         {
           "title": "AI delivers ‘zero financial payoff’ to most companies, Apollo economist says",
           "url": "https://techcrunch.com/2026/10/25/ai-delivers-zero-financial-payoff-to-most-companies-according-to-apollo-economist/",
-          "date": "2026-10-26"
+          "date": "2026-10-26",
+          "categories": [
+            "AI",
+            "Apollo Global Management"
+          ]
         },
         {
           "title": "The hottest AI wearables and gadgets you should know about",
@@ -1985,17 +2001,35 @@
         {
           "title": "Kevin Roose is AGI-pilled. Why aren’t you?",
           "url": "https://www.theverge.com/podcast/1018264/kevin-roose-the-agi-chronicles-machine-gods-podcast-youtube-openai-anthropic",
-          "date": "2026-10-26"
+          "date": "2026-10-26",
+          "categories": [
+            "",
+            "",
+            "",
+            ""
+          ]
         },
         {
           "title": "Can AI help solve the COBOL code crisis?",
           "url": "https://www.theverge.com/ai-artificial-intelligence/1018434/cobol-migration-legacy-code-openai-anthropic",
-          "date": "2026-10-26"
+          "date": "2026-10-26",
+          "categories": [
+            "",
+            "",
+            "",
+            ""
+          ]
         },
         {
           "title": "Anthropic’s IPO filing lays out a plan to ‘revolutionize every area of human endeavor’ with AI",
           "url": "https://www.theverge.com/ai-artificial-intelligence/1018476/anthropic-ipo-details-s1-filed-sec",
-          "date": "2026-10-26"
+          "date": "2026-10-26",
+          "categories": [
+            "",
+            "",
+            "",
+            ""
+          ]
         },
         {
           "title": "r/opensource just banned AI, non-English speakers, and more",
@@ -2033,7 +2067,7 @@
           "date": "2026-10-24"
         }
       ],
-      "fresh_items": 4
+      "fresh_items": 3
     },
     {
       "id": "arstechnica-ai",
@@ -2045,9 +2079,15 @@
       "status": "ok",
       "items": [
         {
-          "title": "Tesla gave up the EV crown. Now it wants to win the autonomy race",
+          "title": "Tesla gave up the EV crown. Now it wants to win the autonomy race.",
           "url": "https://arstechnica.com/cars/2026/10/tesla-wants-ai-and-software-to-be-its-next-profit-engine/",
-          "date": "2026-10-26"
+          "date": "2026-10-26",
+          "categories": [
+            "AI",
+            "Cars",
+            "data centers",
+            "Elon Musk"
+          ]
         },
         {
           "title": "Updated Google privacy policy says your Gmail might be used for advertising",
@@ -2159,7 +2199,12 @@
         {
           "title": "The focus on AI safety disasters ignores everyday harms",
           "url": "https://www.technologyreview.com/2026/10/26/1147645/the-focus-on-ai-safety-disasters-ignores-everyday-harms/",
-          "date": "2026-10-26"
+          "date": "2026-10-26",
+          "categories": [
+            "Artificial intelligence",
+            "AI",
+            "App"
+          ]
         },
         {
           "title": "The Foundations of Scalable AI",
@@ -2221,17 +2266,35 @@
         {
           "title": "Wall Street's fastest traders are building data centers and backing chip startups to stay ahead in AI",
           "url": "https://the-decoder.com/wall-streets-fastest-traders-are-building-data-centers-and-backing-chip-startups-to-stay-ahead-in-ai/",
-          "date": "2026-10-26"
+          "date": "2026-10-26",
+          "categories": [
+            "AI in practice",
+            "Artificial Intelligence",
+            "Short News",
+            "Finance"
+          ]
         },
         {
           "title": "Toyota is betting $6.4 billion a year on humanoid robots and factory automation",
           "url": "https://the-decoder.com/toyota-is-betting-6-4-billion-a-year-on-humanoid-robots-and-factory-automation/",
-          "date": "2026-10-26"
+          "date": "2026-10-26",
+          "categories": [
+            "AI in practice",
+            "Artificial Intelligence",
+            "Short News",
+            "Robotics"
+          ]
         },
         {
           "title": "Meta plans up to $95 billion in stock sales to fund its AI buildout",
           "url": "https://the-decoder.com/meta-plans-up-to-95-billion-in-stock-sales-to-fund-its-ai-buildout/",
-          "date": "2026-10-26"
+          "date": "2026-10-26",
+          "categories": [
+            "AI in practice",
+            "Artificial Intelligence",
+            "Short News",
+            "Meta"
+          ]
         },
         {
           "title": "OpenMobile-2 proves open-source smartphone agents can rival proprietary models",
@@ -2300,42 +2363,66 @@
         {
           "title": "开源中国「AI新生派」走进山东大学软件学院：从技术认知到动手实战，探索 AI 时代开发者成长路径",
           "url": "https://www.oschina.net/news/503219",
-          "date": "2026-10-26"
+          "date": "2026-10-26",
+          "categories": [
+            "综合新闻"
+          ]
         },
         {
           "title": "ToolForge v0.2.2 正式发布：AI Agent 也能调用工具了！支持 MCP、CLI 与插件级权限管理",
           "url": "https://www.oschina.net/news/503201",
-          "date": "2026-10-26"
+          "date": "2026-10-26",
+          "categories": [
+            "软件更新新闻"
+          ]
         },
         {
           "title": "SmartCall v1.0.9 发布：智能体知识库上线，让 AI 客服先查资料再回答",
           "url": "https://www.oschina.net/news/503202",
-          "date": "2026-10-26"
+          "date": "2026-10-26",
+          "categories": [
+            "软件更新新闻"
+          ]
         },
         {
           "title": "PHP 基金会有多缺人？两个 RCE 漏洞的修复，暴露了答案",
           "url": "https://www.oschina.net/news/503215",
-          "date": "2026-10-26"
+          "date": "2026-10-26",
+          "categories": [
+            "综合新闻"
+          ]
         },
         {
           "title": "Kimi K3.1 Pro 发布：代码超 GPT-6 Astra、开放权重版主动移除网络攻防能力",
           "url": "https://www.oschina.net/news/503221",
-          "date": "2026-10-26"
+          "date": "2026-10-26",
+          "categories": [
+            "综合新闻"
+          ]
         },
         {
           "title": "JimuReport v2.5.5 发布，填报增强与 Word 导出专项修复",
           "url": "https://www.oschina.net/news/503217",
-          "date": "2026-10-26"
+          "date": "2026-10-26",
+          "categories": [
+            "软件更新新闻"
+          ]
         },
         {
           "title": ":fire:MybatisPlus 发布 3.5.18 版本",
           "url": "https://www.oschina.net/news/503198",
-          "date": "2026-10-26"
+          "date": "2026-10-26",
+          "categories": [
+            "软件更新新闻"
+          ]
         },
         {
           "title": ":fire::fire::fire: Claude Code 工程最佳实践 | 主数据平台 1.7.0 发布，移动端上线",
           "url": "https://www.oschina.net/news/503199",
-          "date": "2026-10-26"
+          "date": "2026-10-26",
+          "categories": [
+            "软件更新新闻"
+          ]
         },
         {
           "title": "Reqmango 是面向团队的自建开源项目管理工具",
@@ -2736,7 +2823,7 @@
         {
           "title": "pollen-robotics/microduck",
           "url": "https://github.com/pollen-robotics/microduck",
-          "date": "2026-10-26",
+          "date": "2026-10-27",
           "description": "A Tiny biped duck robot 🦆",
           "meta": [
             "Rust",
@@ -2746,7 +2833,7 @@
         {
           "title": "pbakaus/impeccable",
           "url": "https://github.com/pbakaus/impeccable",
-          "date": "2026-10-26",
+          "date": "2026-10-27",
           "description": "The design language that makes your AI harness better at design.",
           "meta": [
             "Rust",
@@ -2756,7 +2843,7 @@
         {
           "title": "nightly-labs/openbot",
           "url": "https://github.com/nightly-labs/openbot",
-          "date": "2026-10-26",
+          "date": "2026-10-27",
           "description": "A local-first desktop workspace for persistent AI teammates. Run Codex, Claude, and Grok with dedicated workspaces, task queues, file sharing, browser control, and agent-to-agent collaboration.",
           "meta": [
             "TypeScript",
@@ -2766,16 +2853,16 @@
         {
           "title": "multica-ai/andrej-karpathy-skills",
           "url": "https://github.com/multica-ai/andrej-karpathy-skills",
-          "date": "2026-10-26",
+          "date": "2026-10-27",
           "description": "A single CLAUDE.md file to improve Claude Code behavior, derived from Andrej Karpathy's observations on LLM coding pitfalls.",
           "meta": [
-            "457 stars today"
+            "702 stars today"
           ]
         },
         {
           "title": "makecindy/cindy",
           "url": "https://github.com/makecindy/cindy",
-          "date": "2026-10-26",
+          "date": "2026-10-27",
           "description": "Consider it done. The open-source AI agent that works out of the box · 想到，就能做到。开源、开箱即用的 AI Agent。",
           "meta": [
             "TypeScript",
@@ -2785,7 +2872,7 @@
         {
           "title": "gitroomhq/postiz-app",
           "url": "https://github.com/gitroomhq/postiz-app",
-          "date": "2026-10-26",
+          "date": "2026-10-27",
           "description": "📨 The ultimate agentic social media scheduling tool 🤖",
           "meta": [
             "TypeScript",
@@ -2795,7 +2882,7 @@
         {
           "title": "debpalash/VoiceStudio",
           "url": "https://github.com/debpalash/VoiceStudio",
-          "date": "2026-10-26",
+          "date": "2026-10-27",
           "description": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
           "meta": [
             "Python",
@@ -2805,7 +2892,7 @@
         {
           "title": "alchaincyf/huashu-design",
           "url": "https://github.com/alchaincyf/huashu-design",
-          "date": "2026-10-26",
+          "date": "2026-10-27",
           "description": "Huashu Design 3.0 · 在 agent 里打一句话，拿回能交付的设计：网页 / App 原型 / 可编辑 PPTX / 动画 / 信息图 · 六个候选挑三个方向 · 84 种带样张的风格库 · 越用越懂你的外观账本与设计体检 · HTML-native design skill for Claude Code, Codex, Cursor & any agent",
           "meta": [
             "HTML",
@@ -2815,7 +2902,7 @@
         {
           "title": "affaan-m/ECC",
           "url": "https://github.com/affaan-m/ECC",
-          "date": "2026-10-26",
+          "date": "2026-10-27",
           "description": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
           "meta": [
             "JavaScript",
@@ -2825,7 +2912,7 @@
         {
           "title": "TauricResearch/TradingAgents",
           "url": "https://github.com/TauricResearch/TradingAgents",
-          "date": "2026-10-26",
+          "date": "2026-10-27",
           "description": "TradingAgents: Multi-Agents LLM Financial Trading Framework",
           "meta": [
             "Python",
@@ -2835,7 +2922,7 @@
         {
           "title": "Panniantong/Agent-Reach",
           "url": "https://github.com/Panniantong/Agent-Reach",
-          "date": "2026-10-26",
+          "date": "2026-10-27",
           "description": "Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu — one CLI, zero API fees.",
           "meta": [
             "Python",
@@ -2845,7 +2932,7 @@
         {
           "title": "Nutlope/hallmark",
           "url": "https://github.com/Nutlope/hallmark",
-          "date": "2026-10-26",
+          "date": "2026-10-27",
           "description": "Anti-AI-slop design skill for Claude Code, Cursor, and Codex.",
           "meta": [
             "CSS",
@@ -2855,7 +2942,7 @@
         {
           "title": "NVIDIA/SkillSpector",
           "url": "https://github.com/NVIDIA/SkillSpector",
-          "date": "2026-10-26",
+          "date": "2026-10-27",
           "description": "Security scanner for AI agent skills. Detect vulnerabilities, malicious patterns, security risks, prompt injection, data exfiltration, and supply-chain risks in Claude Code, Codex, and MCP skills before you install them.",
           "meta": [
             "Python",
@@ -2865,7 +2952,7 @@
         {
           "title": "JetBrains/thinkrail",
           "url": "https://github.com/JetBrains/thinkrail",
-          "date": "2026-10-26",
+          "date": "2026-10-27",
           "description": "Vibe code with pi in a lightweight, real IDE that customises itself around the way you work — The Vibe You Need",
           "meta": [
             "TypeScript",
@@ -3202,6 +3289,11 @@
           "date": "2026-10-26"
         },
         {
+          "title": "NBA announces partnership with prediction markets Kalshi, Polymarket",
+          "url": "https://www.nytimes.com/athletic/7723134/2026/10/26/nba-kalshi-polymarket-agreement-prediction-markets/",
+          "date": "2026-10-26"
+        },
+        {
           "title": "Microsoft offers mass buyouts for roughly a quarter of its workforce",
           "url": "https://www.seattletimes.com/business/microsoft/microsoft-offers-mass-buyouts-for-roughly-a-quarter-of-its-workforce/",
           "date": "2026-10-26"
@@ -3219,6 +3311,11 @@
         {
           "title": "DOJ says presidents should be able to sell secrets on eBay",
           "url": "https://freedom.press/the-classifieds/doj-says-presidents-should-be-able-to-sell-secrets-on-ebay/",
+          "date": "2026-10-26"
+        },
+        {
+          "title": "CSS-Tricks has a new owner",
+          "url": "https://css-tricks.com/css-tricks-has-a-new-owner/",
           "date": "2026-10-26"
         },
         {
