@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-27T01:43:57+08:00",
+  "generated_at": "2026-10-27T10:05:09+08:00",
   "retention_days": 30,
   "fetch_days": 1,
   "tiers": [
@@ -185,11 +185,87 @@
       "status": "ok",
       "items": [
         {
+          "title": "Greptile takes bug detection beyond code review with GPT-6 Astra",
+          "url": "https://openai.com/index/greptile-code-review-codex-astra",
+          "date": "2026-10-27",
+          "categories": [
+            "Startup"
+          ],
+          "title_zh": "Greptile借助GPT-6 Astra将缺陷检测拓展至代码审查之外",
+          "title_zh_source": "deepseek"
+        },
+        {
+          "title": "Working with academic communities to build scientific understanding",
+          "url": "https://openai.com/index/building-scientific-understanding-with-academic-communities",
+          "date": "2026-10-26",
+          "categories": [
+            "Research"
+          ],
+          "title_zh": "Working with academic communities to build scientific understanding",
+          "url_zh": "https://openai.com/index/building-scientific-understanding-with-academic-communities/",
+          "categories_zh": [
+            "研究"
+          ],
+          "title_zh_source": "official"
+        },
+        {
+          "title": "Introducing GPT-6.1 Terra",
+          "url": "https://openai.com/index/introducing-gpt-6-1-terra",
+          "date": "2026-10-26",
+          "categories": [
+            "Product"
+          ],
+          "title_zh": "Addendum to GPT‑6 Astra System Card: GPT‑6.1 Terra 刊发 2026年10月26日 （在新窗口中打开）](https://deploymentsafety.openai.com/gpt-6-1-terra) [推出 GPT-6.1 Terra",
+          "url_zh": "https://openai.com/zh-Hans-CN/index/introducing-gpt-6-1-terra/",
+          "categories_zh": [
+            "产品"
+          ],
+          "title_zh_source": "official"
+        },
+        {
+          "title": "How Ultrafast cut incident investigation from hours to minutes at OpenAI",
+          "url": "https://openai.com/index/openai-cut-incident-investigation",
+          "date": "2026-10-26",
+          "categories": [
+            "OpenAI on OpenAI"
+          ],
+          "title_zh": "Ultrafast如何在OpenAI将事件调查从数小时缩短至数分钟",
+          "title_zh_source": "deepseek"
+        },
+        {
           "title": "How Fanatics and OpenAI streamline the fan experience",
           "url": "https://openai.com/index/fanatics-streamline-fan-experience",
           "date": "2026-10-26",
           "title_zh": "Fanatics与OpenAI如何简化球迷体验",
           "title_zh_source": "deepseek"
+        },
+        {
+          "title": "GPT-6.1 Sol helps CodeRabbit strengthen security across complex codebases",
+          "url": "https://openai.com/index/gpt-6-1-sol-coderabbit-code-security",
+          "date": "2026-10-26",
+          "categories": [
+            "Security"
+          ],
+          "title_zh": "GPT-6.1 Sol 助力 CodeRabbit 提升复杂代码库的安全性",
+          "url_zh": "https://openai.com/index/gpt-6-1-sol-coderabbit-code-security/",
+          "categories_zh": [
+            "安全"
+          ],
+          "title_zh_source": "official"
+        },
+        {
+          "title": "ChatGPT’s expanding world of work",
+          "url": "https://openai.com/index/chatgpt-expanding-world-of-work",
+          "date": "2026-10-26",
+          "categories": [
+            "Research"
+          ],
+          "title_zh": "ChatGPT 不断拓展的工作版图",
+          "url_zh": "https://openai.com/index/chatgpt-expanding-world-of-work/",
+          "categories_zh": [
+            "研究"
+          ],
+          "title_zh_source": "official"
         },
         {
           "title": "Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)",
@@ -780,7 +856,7 @@
           "title_zh_source": "official"
         }
       ],
-      "fresh_items": 1
+      "fresh_items": 7
     },
     {
       "id": "openai-release-notes",
@@ -790,7 +866,8 @@
       "homepage": "https://openai.com/products/release-notes/",
       "homepage_zh": "https://openai.com/zh-Hans-CN/products/release-notes/",
       "url": "https://r.jina.ai/https://openai.com/zh-Hans-CN/products/release-notes/rss.xml",
-      "status": "ok",
+      "status": "error",
+      "error": "页面或接口解析结果为 0 条，可能是结构已变化",
       "items": [
         {
           "title": "Share profiles within your Enterprise workspace",
@@ -1408,7 +1485,7 @@
           "title_zh_source": "official"
         }
       ],
-      "fresh_items": 0
+      "stale": true
     },
     {
       "id": "anthropic-news",
@@ -3499,7 +3576,7 @@
           "title_zh_source": "official"
         }
       ],
-      "fresh_items": 10
+      "fresh_items": 0
     },
     {
       "id": "jiqizhixin",
@@ -3664,6 +3741,160 @@
       "url": "https://www.36kr.com/feed",
       "status": "ok",
       "items": [
+        {
+          "title": "鹏辉能源：人形机器人电池方面与国内头部客户有合作和小批量送样",
+          "url": "https://36kr.com/newsflashes/4043450344805248?f=rss",
+          "date": "2026-10-27",
+          "title_zh": "鹏辉能源：人形机器人电池方面与国内头部客户有合作和小批量送样",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "韩国央行官员：受HBM产品带动，预计明年芯片产量将上升",
+          "url": "https://36kr.com/newsflashes/4043412564530308?f=rss",
+          "date": "2026-10-27",
+          "title_zh": "韩国央行官员：受HBM产品带动，预计明年芯片产量将上升",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "蚂蚁集团发布灵光2.0",
+          "url": "https://36kr.com/newsflashes/4043469229479048?f=rss",
+          "date": "2026-10-27",
+          "title_zh": "蚂蚁集团发布灵光2.0",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "荷航将暂停阿姆斯特丹至迪拜航线运营，直至3月27日",
+          "url": "https://36kr.com/newsflashes/4043396044280708?f=rss",
+          "date": "2026-10-27",
+          "title_zh": "荷航将暂停阿姆斯特丹至迪拜航线运营，直至3月27日",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "英矽智能：公布ISM6331首次人体I期临床试验初步积极数据",
+          "url": "https://36kr.com/newsflashes/4043432360793222?f=rss",
+          "date": "2026-10-27",
+          "title_zh": "英矽智能：公布ISM6331首次人体I期临床试验初步积极数据",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "航聚科技启动IPO辅导",
+          "url": "https://36kr.com/newsflashes/4043438596199305?f=rss",
+          "date": "2026-10-27",
+          "title_zh": "航聚科技启动IPO辅导",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "股票ETF单日净流入311亿，16个交易日连续净流入3571亿",
+          "url": "https://36kr.com/newsflashes/4043476151440520?f=rss",
+          "date": "2026-10-27",
+          "title_zh": "股票ETF单日净流入311亿，16个交易日连续净流入3571亿",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "恒指开盘涨0.21%，恒生科技指数涨0.74%",
+          "url": "https://36kr.com/newsflashes/4043443221238915?f=rss",
+          "date": "2026-10-27",
+          "title_zh": "恒指开盘涨0.21%，恒生科技指数涨0.74%",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "国家统计局：中国9月规模以上工业企业利润同比增长14.4%",
+          "url": "https://36kr.com/newsflashes/4043451473351554?f=rss",
+          "date": "2026-10-27",
+          "title_zh": "国家统计局：中国9月规模以上工业企业利润同比增长14.4%",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "华泰证券：看好国内潮玩龙头持续打开全球市场的前景，潮玩品类海外高增可期",
+          "url": "https://36kr.com/newsflashes/4043403625600131?f=rss",
+          "date": "2026-10-27",
+          "title_zh": "华泰证券：看好国内潮玩龙头持续打开全球市场的前景，潮玩品类海外高增可期",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "人民币兑美元中间价报6.7171，下调9点",
+          "url": "https://36kr.com/newsflashes/4043436893770885?f=rss",
+          "date": "2026-10-27",
+          "title_zh": "人民币兑美元中间价报6.7171，下调9点",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "乐天旅行网站遭黑客入侵，信用卡信息被盗",
+          "url": "https://36kr.com/newsflashes/4043405752685440?f=rss",
+          "date": "2026-10-27",
+          "title_zh": "乐天旅行网站遭黑客入侵，信用卡信息被盗",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "中国央行逆回购今日净投放10140亿元人民币",
+          "url": "https://36kr.com/newsflashes/4043443657610119?f=rss",
+          "date": "2026-10-27",
+          "title_zh": "中国央行逆回购今日净投放10140亿元人民币",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "中信证券：黄金买盘韧性支撑价格，铜价关注低库存与年底关税节点",
+          "url": "https://36kr.com/newsflashes/4043435696804743?f=rss",
+          "date": "2026-10-27",
+          "title_zh": "中信证券：黄金买盘韧性支撑价格，铜价关注低库存与年底关税节点",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "中信证券：预计26Q4国内铝价为22500元/吨",
+          "url": "https://36kr.com/newsflashes/4043438201296002?f=rss",
+          "date": "2026-10-27",
+          "title_zh": "中信证券：预计26Q4国内铝价为22500元/吨",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "中信证券：供给约束延续，原油、煤炭及橡胶价格仍有支撑",
+          "url": "https://36kr.com/newsflashes/4043406554305672?f=rss",
+          "date": "2026-10-27",
+          "title_zh": "中信证券：供给约束延续，原油、煤炭及橡胶价格仍有支撑",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "三大指数集体翻绿",
+          "url": "https://36kr.com/newsflashes/4043483934872451?f=rss",
+          "date": "2026-10-27",
+          "title_zh": "三大指数集体翻绿",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "“星链”风波引发警觉，欧洲欲投百亿再启自主雄心",
+          "url": "https://36kr.com/newsflashes/4043430187029382?f=rss",
+          "date": "2026-10-27",
+          "title_zh": "“星链”风波引发警觉，欧洲欲投百亿再启自主雄心",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "OpenAI宣布在数学、计算机科学、物理学领域取得三项新发现",
+          "url": "https://36kr.com/newsflashes/4043403309552769?f=rss",
+          "date": "2026-10-27",
+          "title_zh": "OpenAI宣布在数学、计算机科学、物理学领域取得三项新发现",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "A股三大指数集体高开，天孚通信涨超3%",
+          "url": "https://36kr.com/newsflashes/4043446558971008?f=rss",
+          "date": "2026-10-27",
+          "title_zh": "A股三大指数集体高开，天孚通信涨超3%",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "8点1氪丨Anthropic正式提交IPO申请；寿司郎传送带被曝窜出活老鼠；苹果客服称很多客户取消iPhone Duo订单",
+          "url": "https://36kr.com/p/4043364384707456?f=rss",
+          "date": "2026-10-27",
+          "title_zh": "8点1氪丨Anthropic正式提交IPO申请；寿司郎传送带被曝窜出活老鼠；苹果客服称很多客户取消iPhone Duo订单",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "36氪首发丨红杉、高瓴、智元投过的全身触觉解决方案公司再获亿元级融资，团队来自港科大",
+          "url": "https://36kr.com/p/4043477378880388?f=rss",
+          "date": "2026-10-27",
+          "title_zh": "36氪首发丨红杉、高瓴、智元投过的全身触觉解决方案公司再获亿元级融资，团队来自港科大",
+          "title_zh_source": "official"
+        },
         {
           "title": "长川科技：前三季度归母净利润17.65亿元，同比增长103.92%",
           "url": "https://36kr.com/newsflashes/4042694075585669?f=rss",
@@ -3875,7 +4106,7 @@
           "title_zh_source": "official"
         }
       ],
-      "fresh_items": 28
+      "fresh_items": 30
     },
     {
       "id": "infoq-cn",
@@ -3899,6 +4130,13 @@
           "url": "https://www.infoq.cn/article/2svt5BbWUOHbADdo0UZo",
           "date": "2026-10-27",
           "title_zh": "中科慧灵完成数亿元A++轮融资：制鞋机器人订单超 4 亿元，具身智能开始拼量产交付",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "Kubernetes 1.37发布：稳定版Metrics API和Beta版Rootless Kubelet",
+          "url": "https://www.infoq.cn/article/TrI8l3CYeAJER9tgR5Jt",
+          "date": "2026-10-27",
+          "title_zh": "Kubernetes 1.37发布：稳定版Metrics API和Beta版Rootless Kubelet",
           "title_zh_source": "official"
         },
         {
@@ -4028,7 +4266,7 @@
           "title_zh_source": "official"
         }
       ],
-      "fresh_items": 11
+      "fresh_items": 12
     },
     {
       "id": "mp-xinzhiyuan",
@@ -4331,9 +4569,21 @@
           "date": "2026-10-27",
           "categories": [
             "AI",
-            "TC"
+            "apollo",
+            "SpaceX"
           ],
           "title_zh": "SpaceX 与 Apollo 敲定 400 亿美元 GPU 融资协议",
+          "title_zh_source": "deepseek"
+        },
+        {
+          "title": "Cohere says Alibaba’s Qwen model tried to send a file to Beijing",
+          "url": "https://techcrunch.com/2026/10/26/cohere-says-alibabas-qwen-model-tried-to-send-a-file-to-beijing/",
+          "date": "2026-10-27",
+          "categories": [
+            "AI",
+            "TC"
+          ],
+          "title_zh": "Cohere称阿里巴巴的Qwen模型试图向北京发送文件",
           "title_zh_source": "deepseek"
         },
         {
@@ -4343,8 +4593,8 @@
           "categories": [
             "AI",
             "Enterprise",
-            "Enterprise AI",
-            "Anthropic"
+            "Anthropic",
+            "anthropic ipo"
           ],
           "title_zh": "Anthropic 的 IPO 文件揭示其留住企业客户的策略",
           "title_zh_source": "deepseek"
@@ -4381,7 +4631,8 @@
           "date": "2026-10-26",
           "categories": [
             "AI",
-            "Apollo Global Management"
+            "Apollo Global Management",
+            "In Brief"
           ],
           "title_zh": "Apollo 经济学家称 AI 对多数公司带来“零财务回报”",
           "title_zh_source": "deepseek"
@@ -4575,7 +4826,7 @@
           "title_zh_source": "official"
         }
       ],
-      "fresh_items": 5
+      "fresh_items": 6
     },
     {
       "id": "theverge-ai",
@@ -4598,6 +4849,19 @@
             "Entertainment"
           ],
           "title_zh": "The RealReal 不让 AI 代理独占设计师服装",
+          "title_zh_source": "deepseek"
+        },
+        {
+          "title": "OpenAI announces three big science discoveries and a new way to work with academics",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1019143/openai-eth-kaseya-science-math-physics",
+          "date": "2026-10-27",
+          "categories": [
+            "AI",
+            "News",
+            "OpenAI",
+            "Science"
+          ],
+          "title_zh": "OpenAI宣布三项重大科学发现及与学术界合作的新方式",
           "title_zh_source": "deepseek"
         },
         {
@@ -4649,6 +4913,19 @@
             "News"
           ],
           "title_zh": "Anthropic 的 IPO 文件提出用 AI“彻底变革人类活动的每个领域”的计划",
+          "title_zh_source": "deepseek"
+        },
+        {
+          "title": "Anthropic is burning gas to feed the AI boom",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1018994/anthropic-ipo-ai-data-center-energy-climate-risk",
+          "date": "2026-10-27",
+          "categories": [
+            "AI",
+            "Anthropic",
+            "Energy",
+            "Environment"
+          ],
+          "title_zh": "Anthropic正燃烧天然气以支撑AI热潮",
           "title_zh_source": "deepseek"
         },
         {
@@ -4728,7 +5005,7 @@
           "title_zh_source": "official"
         }
       ],
-      "fresh_items": 6
+      "fresh_items": 8
     },
     {
       "id": "arstechnica-ai",
@@ -4741,6 +5018,19 @@
       "status": "ok",
       "items": [
         {
+          "title": "ICE plan to buy robot dogs spurs protest from hundreds of Boston Dynamics employees",
+          "url": "https://arstechnica.com/ai/2026/10/boston-dynamics-employees-want-to-block-sale-of-robot-dogs-to-ice/",
+          "date": "2026-10-27",
+          "categories": [
+            "AI",
+            "boston dynamics",
+            "Department of Homeland Security",
+            "ice"
+          ],
+          "title_zh": "ICE购买机器狗的计划引发数百名Boston Dynamics员工抗议",
+          "title_zh_source": "deepseek"
+        },
+        {
           "title": "Highway thieves are spoofing GPS to steal millions in data center-bound cargo",
           "url": "https://arstechnica.com/tech-policy/2026/10/highway-thieves-are-spoofing-gps-to-steal-millions-in-data-center-bound-cargo/",
           "date": "2026-10-27",
@@ -4751,6 +5041,19 @@
             "ai theft"
           ],
           "title_zh": "公路窃贼伪造 GPS 信号，窃取价值数百万美元的数据中心货物",
+          "title_zh_source": "deepseek"
+        },
+        {
+          "title": "Apple releases iOS and macOS 27.2 with new Siri AI features, new Music logo",
+          "url": "https://arstechnica.com/apple/2026/10/apple-releases-ios-and-macos-27-2-with-new-siri-ai-features-new-music-logo/",
+          "date": "2026-10-27",
+          "categories": [
+            "AI",
+            "Apple",
+            "apple",
+            "iOS"
+          ],
+          "title_zh": "Apple发布iOS和macOS 27.2，带来全新Siri AI功能和新Music标志",
           "title_zh_source": "deepseek"
         },
         {
@@ -5014,7 +5317,7 @@
           "title_zh_source": "official"
         }
       ],
-      "fresh_items": 2
+      "fresh_items": 4
     },
     {
       "id": "mit-tr-ai",
@@ -5026,6 +5329,17 @@
       "url": "https://www.technologyreview.com/topic/artificial-intelligence/feed",
       "status": "ok",
       "items": [
+        {
+          "title": "Will the real Anthropic please stand up",
+          "url": "https://www.technologyreview.com/2026/10/26/1147672/will-the-real-anthropic-please-stand-up/",
+          "date": "2026-10-27",
+          "categories": [
+            "Artificial intelligence",
+            "App"
+          ],
+          "title_zh": "真正的Anthropic请站出来",
+          "title_zh_source": "deepseek"
+        },
         {
           "title": "The focus on AI safety disasters ignores everyday harms",
           "url": "https://www.technologyreview.com/2026/10/26/1147645/the-focus-on-ai-safety-disasters-ignores-everyday-harms/",
@@ -5140,7 +5454,7 @@
           "title_zh_source": "official"
         }
       ],
-      "fresh_items": 1
+      "fresh_items": 2
     },
     {
       "id": "the-decoder",
@@ -5153,6 +5467,18 @@
       "status": "ok",
       "items": [
         {
+          "title": "Researchers find six patterns that make AI text so exhausting to read",
+          "url": "https://the-decoder.com/researchers-find-six-patterns-that-make-ai-text-so-exhausting-to-read/",
+          "date": "2026-10-27",
+          "categories": [
+            "AI research",
+            "Artificial Intelligence",
+            "AI and language"
+          ],
+          "title_zh": "研究人员发现让AI文本读起来如此费力的六种模式",
+          "title_zh_source": "deepseek"
+        },
+        {
           "title": "Reddit's r/opensource bans all AI-related projects, sparking backlash and a rival subreddit",
           "url": "https://the-decoder.com/reddits-r-opensource-bans-all-ai-related-projects-sparking-backlash-and-a-rival-subreddit/",
           "date": "2026-10-27",
@@ -5163,6 +5489,31 @@
             "Open Source"
           ],
           "title_zh": "Reddit 的 r/opensource 封禁所有 AI 相关项目，引发强烈反弹并催生竞争性 subreddit",
+          "title_zh_source": "deepseek"
+        },
+        {
+          "title": "GPT-6.1 Terra halves OpenAI's API prices and still gains ground on its larger models",
+          "url": "https://the-decoder.com/gpt-6-1-terra-halves-openais-api-prices-and-still-gains-ground-on-its-larger-models/",
+          "date": "2026-10-27",
+          "categories": [
+            "AI in practice",
+            "Artificial Intelligence",
+            "GPT-6.1",
+            "GPT-6.1 Terra"
+          ],
+          "title_zh": "GPT-6.1 Terra将OpenAI的API价格减半，且仍在缩小与更大模型的差距",
+          "title_zh_source": "deepseek"
+        },
+        {
+          "title": "Anthropic opens its books for Wall Street, showing record revenue and mounting obligations",
+          "url": "https://the-decoder.com/anthropic-opens-its-books-for-wall-street-showing-record-revenue-and-mounting-obligations/",
+          "date": "2026-10-27",
+          "categories": [
+            "AI in practice",
+            "Artificial Intelligence",
+            "Anthropic"
+          ],
+          "title_zh": "Anthropic向华尔街公开账目，显示收入创纪录且义务不断增加",
           "title_zh_source": "deepseek"
         },
         {
@@ -5281,7 +5632,7 @@
           "title_zh_source": "official"
         }
       ],
-      "fresh_items": 4
+      "fresh_items": 7
     },
     {
       "id": "hellogithub",
@@ -5986,6 +6337,76 @@
       "status": "ok",
       "items": [
         {
+          "title": "智能任务协作Agent",
+          "url": "https://juejin.cn/post/7700817447419363371",
+          "date": "2026-10-27",
+          "title_zh": "智能任务协作Agent",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "当团队全员都在用 Coding Agent：为什么生产环境代码通胀与架构债务反而激增了？",
+          "url": "https://juejin.cn/post/7700816075257020456",
+          "date": "2026-10-27",
+          "title_zh": "当团队全员都在用 Coding Agent：为什么生产环境代码通胀与架构债务反而激增了？",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "夯爆了！分享几个我在用的，基于业务场景接口串联测试Skill ！",
+          "url": "https://juejin.cn/post/7700822176635191323",
+          "date": "2026-10-27",
+          "title_zh": "夯爆了！分享几个我在用的，基于业务场景接口串联测试Skill ！",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "唯一答对的 Agent，被队友投票淘汰了",
+          "url": "https://juejin.cn/post/7700869924675829786",
+          "date": "2026-10-27",
+          "title_zh": "唯一答对的 Agent，被队友投票淘汰了",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "别再手动催 AI 干活了：一文读懂 Loop Engineering（循环工程）",
+          "url": "https://juejin.cn/post/7700817447419510827",
+          "date": "2026-10-27",
+          "title_zh": "别再手动催 AI 干活了：一文读懂 Loop Engineering（循环工程）",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "OpenAI 半价放出 GPT-6.1 Terra：幻觉率从 88% 砍到 38%，agent 任务的账要重算了",
+          "url": "https://juejin.cn/post/7700887980138921994",
+          "date": "2026-10-27",
+          "title_zh": "OpenAI 半价放出 GPT-6.1 Terra：幻觉率从 88% 砍到 38%，agent 任务的账要重算了",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "Anthropic 递交 S-1：半年营收 163 亿美元，招股书里写着'人类生存风险'",
+          "url": "https://juejin.cn/post/7700887980138938378",
+          "date": "2026-10-27",
+          "title_zh": "Anthropic 递交 S-1：半年营收 163 亿美元，招股书里写着'人类生存风险'",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "Agent 开发：除了写代码，Agent 还能干什么",
+          "url": "https://juejin.cn/post/7700847997337780262",
+          "date": "2026-10-27",
+          "title_zh": "Agent 开发：除了写代码，Agent 还能干什么",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "AI公司把「灾难性风险」写进招股书？Anthropic这5处反常",
+          "url": "https://juejin.cn/post/7700850888099627062",
+          "date": "2026-10-27",
+          "title_zh": "AI公司把「灾难性风险」写进招股书？Anthropic这5处反常",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "AI 热点日报（2026-10-27）：Anthropic 递交 IPO 抢跑上市，OpenAI 估值下调至 1.25 万亿美元，国办发文缓解 AI 就业替代",
+          "url": "https://juejin.cn/post/7700850888099856438",
+          "date": "2026-10-27",
+          "title_zh": "AI 热点日报（2026-10-27）：Anthropic 递交 IPO 抢跑上市，OpenAI 估值下调至 1.25 万亿美元，国办发文缓解 AI 就业替代",
+          "title_zh_source": "official"
+        },
+        {
           "title": "热点解读：AI Agent 工具调用如何更可靠？Spring AI + MCP 实战：参数校验...",
           "url": "https://juejin.cn/post/7700794571069816874",
           "date": "2026-10-26",
@@ -6075,7 +6496,7 @@
           "description": "A Tiny biped duck robot 🦆",
           "meta": [
             "Rust",
-            "844 stars today"
+            "843 stars today"
           ]
         },
         {
@@ -6085,7 +6506,7 @@
           "description": "The design language that makes your AI harness better at design.",
           "meta": [
             "Rust",
-            "1,551 stars today"
+            "1,506 stars today"
           ]
         },
         {
@@ -6095,7 +6516,7 @@
           "description": "A local-first desktop workspace for persistent AI teammates. Run Codex, Claude, and Grok with dedicated workspaces, task queues, file sharing, browser control, and agent-to-agent collaboration.",
           "meta": [
             "TypeScript",
-            "312 stars today"
+            "176 stars today"
           ]
         },
         {
@@ -6104,7 +6525,7 @@
           "date": "2026-10-27",
           "description": "A single CLAUDE.md file to improve Claude Code behavior, derived from Andrej Karpathy's observations on LLM coding pitfalls.",
           "meta": [
-            "702 stars today"
+            "638 stars today"
           ]
         },
         {
@@ -6114,7 +6535,7 @@
           "description": "Consider it done. The open-source AI agent that works out of the box · 想到，就能做到。开源、开箱即用的 AI Agent。",
           "meta": [
             "TypeScript",
-            "1,268 stars today"
+            "1,296 stars today"
           ]
         },
         {
@@ -6124,7 +6545,7 @@
           "description": "📨 The ultimate agentic social media scheduling tool 🤖",
           "meta": [
             "TypeScript",
-            "146 stars today"
+            "188 stars today"
           ]
         },
         {
@@ -6134,7 +6555,7 @@
           "description": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
           "meta": [
             "Python",
-            "2,292 stars today"
+            "2,297 stars today"
           ]
         },
         {
@@ -6144,7 +6565,7 @@
           "description": "Huashu Design 3.0 · 在 agent 里打一句话，拿回能交付的设计：网页 / App 原型 / 可编辑 PPTX / 动画 / 信息图 · 六个候选挑三个方向 · 84 种带样张的风格库 · 越用越懂你的外观账本与设计体检 · HTML-native design skill for Claude Code, Codex, Cursor & any agent",
           "meta": [
             "HTML",
-            "177 stars today"
+            "251 stars today"
           ]
         },
         {
@@ -6154,7 +6575,7 @@
           "description": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
           "meta": [
             "JavaScript",
-            "853 stars today"
+            "896 stars today"
           ]
         },
         {
@@ -6164,7 +6585,7 @@
           "description": "TradingAgents: Multi-Agents LLM Financial Trading Framework",
           "meta": [
             "Python",
-            "1,376 stars today"
+            "1,395 stars today"
           ]
         },
         {
@@ -6174,7 +6595,7 @@
           "description": "Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu — one CLI, zero API fees.",
           "meta": [
             "Python",
-            "723 stars today"
+            "746 stars today"
           ]
         },
         {
@@ -6184,7 +6605,7 @@
           "description": "Anti-AI-slop design skill for Claude Code, Cursor, and Codex.",
           "meta": [
             "CSS",
-            "2,235 stars today"
+            "2,244 stars today"
           ]
         },
         {
@@ -6194,7 +6615,7 @@
           "description": "Security scanner for AI agent skills. Detect vulnerabilities, malicious patterns, security risks, prompt injection, data exfiltration, and supply-chain risks in Claude Code, Codex, and MCP skills before you install them.",
           "meta": [
             "Python",
-            "203 stars today"
+            "214 stars today"
           ]
         },
         {
@@ -6204,7 +6625,7 @@
           "description": "Vibe code with pi in a lightweight, real IDE that customises itself around the way you work — The Vibe You Need",
           "meta": [
             "TypeScript",
-            "1,156 stars today"
+            "1,173 stars today"
           ]
         }
       ],
@@ -6484,10 +6905,80 @@
       "status": "ok",
       "items": [
         {
+          "title": "US designates helium as a critical material",
+          "url": "https://apnews.com/article/energy-critical-materials-minerals-helium-43da160adc1bad389fba0b9ffbd14c3c",
+          "date": "2026-10-27",
+          "title_zh": "美国将氦气列为关键材料",
+          "title_zh_source": "deepseek"
+        },
+        {
+          "title": "Type Server Protocol",
+          "url": "https://github.com/microsoft/pylance-release/blob/main/docs/tsp/type-server-protocol.md",
+          "date": "2026-10-27",
+          "title_zh": "Type Server Protocol",
+          "title_zh_source": "deepseek"
+        },
+        {
           "title": "The Git Forge for Agent-Human Collaboration",
           "url": "https://entire.com/blog/the-git-forge-for-agent-human-collaboration",
           "date": "2026-10-27",
           "title_zh": "面向代理与人类协作的 Git Forge",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "The Exponential Time Hypothesis Is False [pdf]",
+          "url": "https://github.com/openai/math/blob/main/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/paper.pdf",
+          "date": "2026-10-27",
+          "title_zh": "指数时间假说不成立 [pdf]",
+          "title_zh_source": "deepseek"
+        },
+        {
+          "title": "The EPA Is Quietly Killing Its Web Archive",
+          "url": "https://www.motherjones.com/environment/2026/10/epa-online-archive-deletion-zeldin-camp-lejeune-trump-clean-power/",
+          "date": "2026-10-27",
+          "title_zh": "EPA正悄然关停其网络档案",
+          "title_zh_source": "deepseek"
+        },
+        {
+          "title": "Show HN: Hob - Open-source, on device alternative to Claude Cowork and ChatGPT",
+          "url": "https://github.com/FrigadeHQ/hob",
+          "date": "2026-10-27",
+          "title_zh": "Show HN：Hob——Claude Cowork和ChatGPT的开源端侧替代方案",
+          "title_zh_source": "deepseek"
+        },
+        {
+          "title": "Oldest GUI application that still runs on Windows 11",
+          "url": "https://blog.enlyth.com/posts/oldest-windows-gui-app-win-11/",
+          "date": "2026-10-27",
+          "title_zh": "仍能在Windows 11上运行的最古老GUI应用",
+          "title_zh_source": "deepseek"
+        },
+        {
+          "title": "Nietzschian Debugger",
+          "url": "https://github.com/DilawarShafiq/nietzschian-debugger",
+          "date": "2026-10-27",
+          "title_zh": "尼采式调试器",
+          "title_zh_source": "deepseek"
+        },
+        {
+          "title": "Is PHP Running on Your ColdFusion Server? How to Check, and Remove It",
+          "url": "https://www.gregoryalexander.com/blog/2026/10/23/is-php-quietly-running-on-your-coldfusion-server-how-to-check-and-remove-it",
+          "date": "2026-10-27",
+          "title_zh": "你的ColdFusion服务器上是否在运行PHP？如何检查并移除",
+          "title_zh_source": "deepseek"
+        },
+        {
+          "title": "GPT-6.1 Terra",
+          "url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+          "date": "2026-10-27",
+          "title_zh": "GPT-6.1 Terra",
+          "title_zh_source": "deepseek"
+        },
+        {
+          "title": "Cross-request KV cache exposure in the GLM-5.3 Workers AI model (155 responses)",
+          "url": "https://blog.cloudflare.com/kv-cache-exposure-remediation/",
+          "date": "2026-10-27",
+          "title_zh": "GLM-5.3 Workers AI 模型中的跨请求 KV 缓存暴露（155 条响应）",
           "title_zh_source": "deepseek"
         },
         {
@@ -6495,6 +6986,27 @@
           "url": "https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model",
           "date": "2026-10-27",
           "title_zh": "一款热门开放权重 AI 模型出现令人担忧的行为",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "Announcing three new discoveries in mathematics, computer science, and physics",
+          "url": "https://openai.com/index/building-scientific-understanding-with-academic-communities/",
+          "date": "2026-10-27",
+          "title_zh": "宣布数学、计算机科学和物理学领域的三项新发现",
+          "title_zh_source": "deepseek"
+        },
+        {
+          "title": "A Man from the Future: Why Johnny Can't Stop Abstracting",
+          "url": "http://muratbuffalo.blogspot.com/2026/10/the-man-from-future-why-johnny-cant.html",
+          "date": "2026-10-27",
+          "title_zh": "来自未来的人：为什么 Johnny 无法停止抽象",
+          "title_zh_source": "deepseek"
+        },
+        {
+          "title": "16-bit Windows (Windows 1.x, 2.x, 3.0, 3.1, etc.) on 64-bit Windows",
+          "url": "https://github.com/otya128/winevdm",
+          "date": "2026-10-27",
+          "title_zh": "在 64 位 Windows 上运行 16 位 Windows（Windows 1.x、2.x、3.0、3.1 等）",
           "title_zh_source": "deepseek"
         },
         {
@@ -6509,20 +7021,27 @@
           "url": "https://brennenputh.me/blog/printable-websites/",
           "date": "2026-10-26",
           "title_zh": "网站应当可打印",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Switzerland. Block by block. At 1:1 scale",
           "url": "https://blocks.manifold3d.ch/",
           "date": "2026-10-26",
           "title_zh": "瑞士。逐块呈现。1:1 比例",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Stalwart v1.0: The Fastest Mail Server on the Planet",
           "url": "https://stalw.art/blog/stalwart-1-0/",
           "date": "2026-10-26",
           "title_zh": "Stalwart v1.0：全球最快的邮件服务器",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "Solar power is becoming bigger than nuclear",
+          "url": "https://www.bbc.com/future/article/20261023-how-solar-became-bigger-than-nuclear",
+          "date": "2026-10-26",
+          "title_zh": "太阳能发电规模正在超越核能",
           "title_zh_source": "deepseek"
         },
         {
@@ -6530,7 +7049,7 @@
           "url": "https://titleart.dvy.io/",
           "date": "2026-10-26",
           "title_zh": "Show HN：TitleArt——让文字像 1997 年那样",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Sebastian Raschka's from-scratch video course on building reasoning models",
@@ -6544,34 +7063,41 @@
           "url": "https://shraiwi.com/blog/simd-fast-esp32s3/",
           "date": "2026-10-26",
           "title_zh": "在 2 美元微控制器上实现 SIMD 加速的计算机视觉",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Pharo 14",
           "url": "https://pharo.org/news/2026-10-26-Pharo14Release.html",
           "date": "2026-10-26",
           "title_zh": "Pharo 14",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Partyline: A group voice application for Reticulum, built on LXST",
           "url": "https://github.com/RFnexus/partyline",
           "date": "2026-10-26",
           "title_zh": "Partyline：基于 LXST 构建的 Reticulum 群组语音应用",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "PaperPilot – Zero-Cloud, Pure-Rust PDF Engine with WASM and MCP",
           "url": "https://github.com/KrushnaVardhanReddy/PaperPilot",
           "date": "2026-10-26",
           "title_zh": "PaperPilot——零云端、纯 Rust 的 PDF 引擎，支持 WASM 和 MCP",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "OLED iPad Mini",
           "url": "https://www.apple.com/shop/buy-ipad/ipad-mini",
           "date": "2026-10-26",
           "title_zh": "OLED iPad Mini",
+          "title_zh_source": "official"
+        },
+        {
+          "title": "New iPad mini",
+          "url": "https://www.apple.com/newsroom/2026/10/apple-gives-ipad-mini-its-biggest-update-ever/",
+          "date": "2026-10-26",
+          "title_zh": "新款 iPad mini",
           "title_zh_source": "deepseek"
         },
         {
@@ -6593,7 +7119,7 @@
           "url": "https://imaginationlibrary.com/",
           "date": "2026-10-26",
           "title_zh": "Dolly Parton 的 Imagination Library",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "CSS-Tricks has a new owner",
@@ -6607,21 +7133,21 @@
           "url": "https://www.brown.edu/news/2026-10-26/ai-data-workers",
           "date": "2026-10-26",
           "title_zh": "布朗大学学生绘制出支撑 AI 的隐形全球劳动力地图",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Behind the scenes at the NeXT Computer office",
           "url": "https://exhibits.stanford.edu/menuez/browse/next-computer-inc?per_page=96&sort=pub_year_isi+asc%2C+title_sort+asc&view=masonry",
           "date": "2026-10-26",
           "title_zh": "NeXT Computer 办公室的幕后故事",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Attention Is Not What You Need (2025)",
           "url": "https://arxiv.org/abs/2512.19428",
           "date": "2026-10-26",
           "title_zh": "注意力并非你所需（2025）",
-          "title_zh_source": "deepseek"
+          "title_zh_source": "official"
         },
         {
           "title": "Anthropic S-1",
@@ -6832,6 +7358,45 @@
       "url": "https://simonwillison.net/atom/everything/",
       "status": "ok",
       "items": [
+        {
+          "title": "webframe: evaluated as a scraper and a sandbox",
+          "url": "https://simonwillison.net/2026/Oct/26/webframe-evaluation/",
+          "date": "2026-10-27",
+          "categories": [
+            "browsers",
+            "go",
+            "javascript",
+            "jeff-lindsay"
+          ],
+          "title_zh": "webframe：作为抓取器和沙箱进行评估",
+          "title_zh_source": "deepseek"
+        },
+        {
+          "title": "Quoting Jason Koebler",
+          "url": "https://simonwillison.net/2026/Oct/26/jason-koebler/",
+          "date": "2026-10-27",
+          "categories": [
+            "jason-koebler",
+            "openai",
+            "journalism",
+            "ai"
+          ],
+          "title_zh": "引用 Jason Koebler",
+          "title_zh_source": "deepseek"
+        },
+        {
+          "title": "GPT-6.1 Terra",
+          "url": "https://simonwillison.net/2026/Oct/26/gpt-61-terra/",
+          "date": "2026-10-27",
+          "categories": [
+            "ai",
+            "openai",
+            "generative-ai",
+            "llms"
+          ],
+          "title_zh": "GPT-6.1 Terra",
+          "title_zh_source": "deepseek"
+        },
         {
           "title": "Seam Cutter",
           "url": "https://simonwillison.net/2026/Oct/25/seam-cutter/",
@@ -7202,7 +7767,7 @@
           "title_zh_source": "official"
         }
       ],
-      "fresh_items": 0
+      "fresh_items": 3
     },
     {
       "id": "lilian-weng",
